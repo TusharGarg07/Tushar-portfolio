@@ -1,6 +1,7 @@
 import Container from '../layout/Container.jsx'
 import Card from '../ui/Card.jsx'
 import SectionTitle from '../ui/SectionTitle.jsx'
+import profile from '../assets/images/profile.jpg'
 
 export default function About() {
   return (
@@ -14,13 +15,11 @@ export default function About() {
         <div className="mt-12 grid gap-8 md:grid-cols-2 md:gap-12">
           {/* Left side - Profile visual */}
           <div className="flex items-center justify-center">
-            <div className="h-64 w-64 rounded-2xl bg-gradient-to-br from-accent/20 to-accent/5 border border-border/50 relative overflow-hidden">
-              <div className="absolute inset-0 opacity-50"
-                style={{
-                  backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%2300ffff' fill-opacity='0.03'%3E%3Cpath d='M0 0h40v40H0z'/%3E%3Cpath d='M0 0h20v20H0zM20 20h20v20H20z'/%3E%3C/g%3E%3C/svg%3E")`
-                }}
-              />
-            </div>
+            <img
+              src={profile}
+              alt="Tushar Garg"
+              className="rounded-2xl object-cover w-full h-full max-h-64 max-w-64"
+            />
           </div>
 
           {/* Right side - Text content */}
