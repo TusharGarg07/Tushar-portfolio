@@ -1,7 +1,7 @@
 import Container from '../layout/Container.jsx'
 import Card from '../ui/Card.jsx'
 import SectionTitle from '../ui/SectionTitle.jsx'
-import profile from "../../assets/images/profile.jpg"
+import profile from "../../assets/images/profile.jpeg"
 
 export default function About() {
   return (
