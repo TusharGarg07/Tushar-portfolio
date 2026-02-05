@@ -1,0 +1,115 @@
+import Container from '../layout/Container.jsx'
+import Button from '../ui/Button.jsx'
+import Card from '../ui/Card.jsx'
+
+export default function Hero() {
+  return (
+    <section id="hero" className="scroll-mt-24">
+      <div className="relative min-h-screen overflow-hidden">
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute -left-40 -top-40 h-[520px] w-[520px] rounded-full bg-accent/10 blur-3xl" />
+          <div className="absolute -bottom-40 -right-40 h-[520px] w-[520px] rounded-full bg-accent/10 blur-3xl" />
+        </div>
+
+        <Container className="relative flex min-h-screen items-center py-24">
+          <div className="grid w-full items-center gap-12 lg:grid-cols-12">
+            <div className="lg:col-span-7">
+              <div className="animate-fade-up">
+                <p className="text-sm font-medium tracking-wide text-muted">
+                  Hi, I’m
+                </p>
+
+                <h1 className="mt-3 text-4xl font-bold tracking-tight text-foreground sm:text-6xl">
+                  Tushar <span className="text-accent">Garg</span>
+                </h1>
+
+                <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
+                  <span className="text-foreground">IT & Data Analysis Intern</span>
+                  <span className="mx-2 text-muted">|</span>
+                  <span className="text-accent">AI Systems</span>
+                  <span className="mx-2 text-muted">|</span>
+                  <span className="text-foreground">Full-Stack Developer</span>
+                  <span className="mx-2 text-muted">|</span>
+                  <span className="text-foreground">Bioinformatics Background</span>
+                </p>
+
+                <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted">
+                  Building <span className="text-foreground">AI-driven systems</span> for
+                  <span className="text-accent"> manufacturing inspection</span>,
+                  <span className="text-accent"> environmental analytics</span>, and
+                  real-world data applications.
+                </p>
+
+                <div className="mt-10 flex flex-wrap gap-3">
+                  <Button href="#projects">View Projects</Button>
+                  <Button variant="outline" href="#">
+                    Download Resume
+                  </Button>
+                  <Button variant="outline" href="#contact">
+                    Contact Me
+                  </Button>
+                </div>
+              </div>
+
+              <div className="animate-fade-up-delayed mt-12 grid max-w-2xl gap-4 sm:grid-cols-2">
+                <Card>
+                  <p className="text-xs font-medium tracking-wide text-muted">
+                    Focus
+                  </p>
+                  <p className="mt-3 text-sm leading-relaxed text-muted">
+                    Production-minded ML, analytics workflows, and pragmatic engineering.
+                  </p>
+                </Card>
+                <Card>
+                  <p className="text-xs font-medium tracking-wide text-muted">
+                    Domains
+                  </p>
+                  <p className="mt-3 text-sm leading-relaxed text-muted">
+                    Manufacturing AI, environmental data, bioinformatics, and full-stack.
+                  </p>
+                </Card>
+              </div>
+            </div>
+
+            <div className="relative lg:col-span-5">
+              <div className="relative mx-auto w-full max-w-md">
+                <div
+                  className="pointer-events-none absolute -inset-10 rounded-[32px] bg-gradient-to-br from-accent/25 via-transparent to-accent/10 blur-2xl opacity-80 animate-gradient-slow"
+                  style={{ backgroundImage: 'linear-gradient(135deg, rgba(34,211,238,0.25), rgba(11,17,32,0), rgba(34,211,238,0.10))' }}
+                />
+
+                <div className="relative animate-float-slow rounded-[28px] border border-border bg-card p-6 shadow-glass backdrop-blur">
+                  <div className="flex items-center justify-between">
+                    <p className="text-xs font-medium tracking-wide text-muted">
+                      Abstract Signal
+                    </p>
+                    <span className="h-2 w-2 rounded-full bg-accent" />
+                  </div>
+
+                  <div className="mt-6 space-y-4">
+                    <div className="h-2 w-4/5 rounded-full bg-white/10" />
+                    <div className="h-2 w-3/5 rounded-full bg-white/10" />
+                    <div className="h-2 w-2/3 rounded-full bg-white/10" />
+                  </div>
+
+                  <div className="mt-8 grid grid-cols-3 gap-3">
+                    <div className="h-16 rounded-2xl border border-border bg-white/5" />
+                    <div className="h-16 rounded-2xl border border-border bg-white/5" />
+                    <div className="h-16 rounded-2xl border border-border bg-white/5" />
+                  </div>
+
+                  <div className="mt-8 rounded-2xl border border-border bg-white/5 p-4">
+                    <p className="text-xs text-muted">System status</p>
+                    <p className="mt-2 text-sm font-medium text-foreground">
+                      Ready for Phase 1 content.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </div>
+    </section>
+  )
+}
