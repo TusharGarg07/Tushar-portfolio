@@ -15,15 +15,15 @@ export default function Contact() {
         <div className="mt-12 text-center">
           <div className="space-y-4">
             <a
-              href="mailto:tushar@example.com"
+              href="mailto:phenominal0525@gmail.com?subject=Portfolio%20Inquiry"
               className="text-base font-medium text-accent hover:text-accent/80 transition-colors"
             >
-              tushar@example.com
+              phenominal0525@gmail.com
             </a>
             
             <div className="flex justify-center gap-6">
               <a
-                href="https://linkedin.com/in/tushargarg"
+                href="https://www.linkedin.com/in/tushargarg25"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm text-muted hover:text-foreground transition-colors"
@@ -31,7 +31,7 @@ export default function Contact() {
                 LinkedIn
               </a>
               <a
-                href="https://github.com/tushargarg"
+                href="https://github.com/TusharGarg07"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm text-muted hover:text-foreground transition-colors"
