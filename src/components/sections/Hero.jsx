@@ -22,8 +22,8 @@ export default function Hero() {
                     Hi, I’m
                   </p>
 
-                  <h2 className="mt-3 text-4xl font-bold tracking-tight bg-gradient-to-r from-accent to-cyan-300 bg-clip-text text-transparent drop-shadow-[0_0_20px_rgba(34,211,238,0.15)] sm:text-6xl">
-                    Tushar Garg
+                  <h2 className="mt-3 text-4xl font-bold tracking-tight bg-gradient-to-r from-emerald-400 to-blue-400 bg-clip-text text-transparent sm:text-5xl leading-tight whitespace-nowrap">
+                    Tushar <span className="text-foreground">Garg</span>
                   </h2>
                 </div>
 
