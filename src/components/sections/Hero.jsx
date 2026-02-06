@@ -1,7 +1,7 @@
 import Container from '../layout/Container.jsx'
 import Button from '../ui/Button.jsx'
 import Card from '../ui/Card.jsx'
-import useScrollFadeIn from '../hooks/useScrollFadeIn.js'
+import useScrollFadeIn from "../../hooks/useScrollFadeIn"
 
 export default function Hero() {
   const ref = useScrollFadeIn()
