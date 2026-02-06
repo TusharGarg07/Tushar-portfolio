@@ -1,10 +1,12 @@
 import Container from '../layout/Container.jsx'
 import Button from '../ui/Button.jsx'
 import Card from '../ui/Card.jsx'
+import useScrollFadeIn from '../hooks/useScrollFadeIn.js'
 
 export default function Hero() {
+  const ref = useScrollFadeIn()
   return (
-    <section id="hero" className="scroll-mt-24">
+    <section id="hero" className="scroll-mt-24" ref={ref}>
       <div className="relative min-h-screen overflow-hidden">
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute -left-40 -top-40 h-[520px] w-[520px] rounded-full bg-accent/10 blur-3xl" />
@@ -15,9 +17,15 @@ export default function Hero() {
           <div className="grid w-full items-center gap-12 lg:grid-cols-12">
             <div className="lg:col-span-7">
               <div className="animate-fade-up">
-                <p className="text-sm font-medium tracking-wide text-muted">
-                  Hi, I’m
-                </p>
+                <div className="animate-fade-up-delayed translate-y-0 animate-fade-up duration-700 ease-out">
+                  <p className="text-sm font-medium tracking-wide text-muted">
+                    Hi, I’m
+                  </p>
+
+                  <h2 className="mt-3 text-4xl font-bold tracking-tight bg-gradient-to-r from-accent to-cyan-300 bg-clip-text text-transparent drop-shadow-[0_0_20px_rgba(34,211,238,0.15)] sm:text-6xl">
+                    Tushar Garg
+                  </h2>
+                </div>
 
                 <h1 className="mt-3 text-4xl font-bold tracking-tight text-foreground sm:text-6xl">
                   Building AI Systems for <span className="text-accent">Manufacturing</span> & <span className="text-accent">Environmental Intelligence</span>
@@ -39,11 +47,11 @@ export default function Hero() {
                 </p>
 
                 <div className="mt-10 flex flex-wrap gap-3">
-                  <Button href="#projects">View Projects</Button>
-                  <Button variant="outline" href="#">
+                  <Button href="#projects" className="transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(34,211,238,0.25)]">View Projects</Button>
+                  <Button variant="outline" href="#" className="transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(34,211,238,0.25)]">
                     Download Resume
                   </Button>
-                  <Button variant="outline" href="#contact">
+                  <Button variant="outline" href="#contact" className="transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(34,211,238,0.25)]">
                     Contact Me
                   </Button>
                 </div>

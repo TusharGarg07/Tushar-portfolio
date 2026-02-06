@@ -91,7 +91,7 @@ export default function Navbar() {
                   <span className="relative">
                     {link.label}
                     <span
-                      className={`absolute -bottom-2 left-0 h-px w-full bg-accent transition-opacity ${
+                      className={`absolute -bottom-2 left-0 h-px w-full bg-accent transition-all duration-300 ease-out ${
                         isActive ? 'opacity-100' : 'opacity-0'
                       }`}
                     />

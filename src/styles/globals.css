@@ -4,6 +4,11 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 4rem;
+}
+
+html * {
+  scroll-margin-top: 4rem;
 }
 
 body {
@@ -46,6 +51,22 @@ body {
     100% {
       transform: translate3d(0, 0, 0);
     }
+  }
+
+  @keyframes fade-in-viewport {
+    0% {
+      opacity: 0.95;
+      transform: translateY(8px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-viewport {
+    opacity: 0;
+    animation: fade-in-viewport 400ms ease-out forwards;
   }
 
   @keyframes gradient-shift {
