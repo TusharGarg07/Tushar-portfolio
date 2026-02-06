@@ -20,13 +20,11 @@ export default function Hero() {
                 </p>
 
                 <h1 className="mt-3 text-4xl font-bold tracking-tight text-foreground sm:text-6xl">
-                  Tushar <span className="text-accent">Garg</span>
+                  Building AI Systems for <span className="text-accent">Manufacturing</span> & <span className="text-accent">Environmental Intelligence</span>
                 </h1>
 
                 <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
-                  <span className="text-foreground">IT & Data Analysis Intern</span>
-                  <span className="mx-2 text-muted">|</span>
-                  <span className="text-accent">AI Systems</span>
+                  <span className="text-foreground">AI & Data Analysis Intern</span>
                   <span className="mx-2 text-muted">|</span>
                   <span className="text-foreground">Full-Stack Developer</span>
                   <span className="mx-2 text-muted">|</span>
@@ -49,6 +47,10 @@ export default function Hero() {
                     Contact Me
                   </Button>
                 </div>
+
+                <p className="mt-6 text-sm text-muted">
+                  Currently open to AI, Data, and Industrial Technology opportunities.
+                </p>
               </div>
 
               <div className="animate-fade-up-delayed mt-12 grid max-w-2xl gap-4 sm:grid-cols-2">
@@ -99,9 +101,15 @@ export default function Hero() {
                   </div>
 
                   <div className="mt-8 rounded-2xl border border-border bg-white/5 p-4">
-                    <p className="text-xs text-muted">System status</p>
+                    <p className="text-xs text-muted">System Status</p>
                     <p className="mt-2 text-sm font-medium text-foreground">
-                      Ready for Phase 1 content.
+                      AI Systems Deployed
+                    </p>
+                    <p className="mt-1 text-xs text-muted">
+                      Active Projects: 4
+                    </p>
+                    <p className="mt-1 text-xs text-accent">
+                      Focus: Industrial & Environmental AI
                     </p>
                   </div>
                 </div>
