@@ -56,7 +56,7 @@ export default {
         "検査工程の自動化および品質判断支援の設計に取り組みました。"
       ]
     }
-  ]
+  ],
   certifications: [
     {
       title: "AI・機械学習講座修了"
