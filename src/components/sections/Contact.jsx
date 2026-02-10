@@ -1,6 +1,6 @@
 import { useLanguage } from "../../contexts/LanguageContext.jsx"
-import en from '../content/en.js'
-import jp from '../content/jp.js'
+import en from "../../content/en"
+import jp from "../../content/jp"
 import Card from '../ui/Card.jsx'
 import SectionTitle from '../ui/SectionTitle.jsx'
 import Button from '../ui/Button.jsx'
