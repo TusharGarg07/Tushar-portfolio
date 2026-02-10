@@ -1,10 +1,15 @@
 import Container from '../layout/Container.jsx'
 import Button from '../ui/Button.jsx'
 import Card from '../ui/Card.jsx'
-import useScrollFadeIn from "../../hooks/useScrollFadeIn"
+import useScrollFadeIn from '../../hooks/useScrollFadeIn.js'
+import { useLanguage } from '../contexts/LanguageContext.jsx'
+import en from '../content/en.js'
+import jp from '../content/jp.js'
 
 export default function Hero() {
   const ref = useScrollFadeIn()
+  const { language } = useLanguage()
+  const content = language === 'jp' ? jp : en
   return (
     <section id="hero" className="scroll-mt-24" ref={ref}>
       <div className="relative min-h-screen overflow-hidden">
@@ -19,24 +24,24 @@ export default function Hero() {
               <div className="animate-fade-up">
                 <div className="animate-fade-up-delayed translate-y-0 animate-fade-up duration-700 ease-out">
                   <p className="text-sm font-medium tracking-wide text-muted">
-                    Hi, I’m
+                    {content.hero.greeting}
                   </p>
 
                   <h2 className="mt-3 text-4xl font-bold tracking-tight bg-gradient-to-r from-emerald-400 to-blue-400 bg-clip-text text-transparent sm:text-5xl leading-tight whitespace-nowrap">
-                    Tushar <span className="text-foreground">Garg</span>
+                    {content.hero.name.split(' ')[0]} <span className="text-foreground">{content.hero.name.split(' ')[1]}</span>
                   </h2>
+                  
+                  <div className="mt-4 inline-flex items-center rounded-full border border-accent/40 px-3 py-1 text-xs text-accent">
+                    🇯🇵 {language === 'jp' ? '日本での就職希望' : 'Seeking Opportunities in Japan'}
+                  </div>
                 </div>
 
                 <h1 className="mt-3 text-4xl font-bold tracking-tight text-foreground sm:text-6xl">
-                  Building AI Systems for <span className="text-accent">Manufacturing</span> & <span className="text-accent">Environmental Intelligence</span>
+                  {content.hero.headline}
                 </h1>
 
                 <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
-                  <span className="text-foreground">AI & Data Analysis Intern</span>
-                  <span className="mx-2 text-muted">|</span>
-                  <span className="text-foreground">Full-Stack Developer</span>
-                  <span className="mx-2 text-muted">|</span>
-                  <span className="text-foreground">Bioinformatics Background</span>
+                  {content.hero.subline}
                 </p>
 
                 <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted">
@@ -57,7 +62,7 @@ export default function Hero() {
                 </div>
 
                 <p className="mt-6 text-sm text-muted">
-                  Currently open to AI, Data, and Industrial Technology opportunities.
+                  {content.hero.availability}
                 </p>
               </div>
 

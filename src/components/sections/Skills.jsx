@@ -1,9 +1,13 @@
-import skills from '../../data/skills.js'
+import { useLanguage } from '../contexts/LanguageContext.jsx'
+import en from '../content/en.js'
+import jp from '../content/jp.js'
 import Container from '../layout/Container.jsx'
 import Card from '../ui/Card.jsx'
 import SectionTitle from '../ui/SectionTitle.jsx'
 
 export default function Skills() {
+  const { language } = useLanguage()
+  const content = language === 'jp' ? jp : en
   return (
     <section id="skills" className="section">
       <Container>
@@ -13,7 +17,7 @@ export default function Skills() {
         />
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {skills.map((skillCategory) => (
+          {content.skills.map((skillCategory) => (
             <Card key={skillCategory.id}>
               <h3 className="text-base font-bold text-accent mb-2">
                 {skillCategory.category}

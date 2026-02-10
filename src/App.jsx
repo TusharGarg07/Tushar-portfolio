@@ -8,22 +8,25 @@ import Certifications from './components/sections/Certifications.jsx'
 import Languages from './components/sections/Languages.jsx'
 import Contact from './components/sections/Contact.jsx'
 import Footer from './components/layout/Footer.jsx'
+import { LanguageProvider } from './contexts/LanguageContext.jsx'
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <Navbar />
-      <main className="pt-16">
-        <Hero />
-        <Projects />
-        <Experience />
-        <Skills />
-        <About />
-        <Certifications />
-        <Languages />
-        <Contact />
-        <Footer />
-      </main>
-    </div>
+    <LanguageProvider>
+      <div className="min-h-screen bg-background text-foreground">
+        <Navbar />
+        <main className="pt-16">
+          <Hero />
+          <Projects />
+          <Experience />
+          <Skills />
+          <About />
+          <Certifications />
+          <Languages />
+          <Contact />
+          <Footer />
+        </main>
+      </div>
+    </LanguageProvider>
   )
 }

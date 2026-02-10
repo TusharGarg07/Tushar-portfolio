@@ -1,9 +1,13 @@
-import experience from '../../data/experience.js'
+import { useLanguage } from '../contexts/LanguageContext.jsx'
+import en from '../content/en.js'
+import jp from '../content/jp.js'
 import Container from '../layout/Container.jsx'
 import Card from '../ui/Card.jsx'
 import SectionTitle from '../ui/SectionTitle.jsx'
 
 export default function Experience() {
+  const { language } = useLanguage()
+  const content = language === 'jp' ? jp : en
   return (
     <section id="experience" className="section">
       <Container>
@@ -17,7 +21,7 @@ export default function Experience() {
           <div className="absolute left-0 top-0 bottom-0 hidden w-px bg-gradient-to-b from-accent/50 via-accent/30 to-transparent md:left-[140px] md:block" />
 
           <div className="space-y-10">
-            {experience.map((item) => (
+            {content.experience.map((item) => (
               <div
                 key={item.id}
                 className="relative grid gap-4 md:grid-cols-[140px_1fr] md:gap-8"
@@ -39,11 +43,11 @@ export default function Experience() {
                       <h3 className="text-base font-semibold text-foreground">
                         {item.role}
                       </h3>
-                      <p className="text-sm text-muted">{item.organization}</p>
+                      <p className="text-sm text-muted">{item.company}</p>
                     </div>
 
                     <ul className="mt-4 space-y-2">
-                      {(item.description || []).map((bullet, index) => (
+                      {(item.points || []).map((bullet, index) => (
                         <li
                           key={index}
                           className="flex gap-3 text-sm leading-relaxed text-muted"

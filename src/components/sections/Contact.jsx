@@ -1,19 +1,30 @@
-import Container from '../layout/Container.jsx'
+import { useLanguage } from '../contexts/LanguageContext.jsx'
+import en from '../content/en.js'
+import jp from '../content/jp.js'
 import Card from '../ui/Card.jsx'
 import SectionTitle from '../ui/SectionTitle.jsx'
 import Button from '../ui/Button.jsx'
 
 export default function Contact() {
+  const { language } = useLanguage()
+  const content = language === 'jp' ? jp : en
+  const resumePath = language === 'jp' 
+    ? '/resume/Tushar_Garg_Resume_JP.pdf'
+    : '/resume/Tushar_Garg_Resume_EN.pdf'
   return (
     <section id="contact" className="section">
       <Container>
         <SectionTitle
-          title="Contact"
+          title={content.contact.heading}
           subtitle="Get in touch for collaboration, opportunities, or technical discussions."
         />
 
         <div className="mt-12 text-center">
           <div className="space-y-4">
+            <p className="text-base leading-relaxed text-muted">
+              {content.contact.message}
+            </p>
+            
             <a
               href="mailto:phenominal0525@gmail.com?subject=Portfolio%20Inquiry"
               className="text-base font-medium text-accent hover:text-accent/80 transition-colors"
@@ -42,9 +53,12 @@ export default function Contact() {
           </div>
 
           <div className="mt-8">
-            <Button href="/Tushar_Garg_Resume.pdf" download className="px-6">
+            <p className="text-sm text-muted mb-4">
+              {content.contact.closing}
+            </p>
+            <a href={resumePath} download className="px-6">
               Download Resume
-            </Button>
+            </a>
           </div>
         </div>
       </Container>

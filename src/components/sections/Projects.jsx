@@ -1,10 +1,14 @@
-import projects from '../../data/projects.js'
+import { useLanguage } from '../contexts/LanguageContext.jsx'
+import en from '../content/en.js'
+import jp from '../content/jp.js'
 import Container from '../layout/Container.jsx'
 import Card from '../ui/Card.jsx'
 import Button from '../ui/Button.jsx'
 import SectionTitle from '../ui/SectionTitle.jsx'
 
 export default function Projects() {
+  const { language } = useLanguage()
+  const content = language === 'jp' ? jp : en
   return (
     <section id="projects" className="section">
       <Container>
@@ -14,7 +18,7 @@ export default function Projects() {
         />
 
         <div className="mt-8 grid gap-6 md:grid-cols-2">
-          {projects.map((project) => (
+          {content.projects.map((project) => (
             <Card key={project.id}>
               <div className="flex items-start justify-between gap-4">
                 <div className="min-w-0">

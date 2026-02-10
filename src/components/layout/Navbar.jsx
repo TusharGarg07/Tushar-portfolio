@@ -1,5 +1,6 @@
 import Container from './Container.jsx'
 import Button from '../ui/Button.jsx'
+import { useLanguage } from '../contexts/LanguageContext.jsx'
 import { useEffect, useMemo, useState } from 'react'
 
 const navLinks = [
@@ -16,6 +17,7 @@ const navLinks = [
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [activeId, setActiveId] = useState('hero')
+  const { language, toggleLanguage } = useLanguage()
 
   const sectionIds = useMemo(
     () => navLinks.map((l) => l.href.replace('#', '')).filter(Boolean),
@@ -102,6 +104,22 @@ export default function Navbar() {
           </nav>
 
           <div className="flex items-center gap-2">
+            <button
+              onClick={toggleLanguage}
+              className="flex items-center gap-2 rounded-lg border border-border bg-card px-3 py-1.5 text-sm transition-all hover:bg-accent/10"
+            >
+              <span className={`transition-colors ${
+                language === 'en' ? 'text-foreground font-medium' : 'text-muted'
+              }`}>
+                EN
+              </span>
+              <span className="text-muted">|</span>
+              <span className={`transition-colors ${
+                language === 'jp' ? 'text-foreground font-medium' : 'text-muted'
+              }`}>
+                日本語
+              </span>
+            </button>
             <Button variant="outline" href="#contact" className="hidden sm:inline-flex">
               Contact
             </Button>
