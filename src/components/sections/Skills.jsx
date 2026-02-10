@@ -1,4 +1,4 @@
-import { useLanguage } from '../contexts/LanguageContext.jsx'
+import { useLanguage } from "../../contexts/LanguageContext.jsx"
 import en from '../content/en.js'
 import jp from '../content/jp.js'
 import Container from '../layout/Container.jsx'

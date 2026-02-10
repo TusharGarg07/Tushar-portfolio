@@ -1,6 +1,6 @@
 import Container from './Container.jsx'
 import Button from '../ui/Button.jsx'
-import { useLanguage } from '../contexts/LanguageContext.jsx'
+import { useLanguage } from "../../contexts/LanguageContext.jsx"
 import { useEffect, useMemo, useState } from 'react'
 
 const navLinks = [

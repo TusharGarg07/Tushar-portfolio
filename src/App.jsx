@@ -8,7 +8,7 @@ import Certifications from './components/sections/Certifications.jsx'
 import Languages from './components/sections/Languages.jsx'
 import Contact from './components/sections/Contact.jsx'
 import Footer from './components/layout/Footer.jsx'
-import { LanguageProvider } from './contexts/LanguageContext.jsx'
+import { LanguageProvider } from "./contexts/LanguageContext.jsx"
 
 export default function App() {
   return (

@@ -2,7 +2,7 @@ import Container from '../layout/Container.jsx'
 import Button from '../ui/Button.jsx'
 import Card from '../ui/Card.jsx'
 import useScrollFadeIn from '../../hooks/useScrollFadeIn.js'
-import { useLanguage } from '../contexts/LanguageContext.jsx'
+import { useLanguage } from "../../contexts/LanguageContext.jsx"
 import en from '../content/en.js'
 import jp from '../content/jp.js'
 
