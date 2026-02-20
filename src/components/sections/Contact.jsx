@@ -10,7 +10,7 @@ export default function Contact() {
   const { language } = useLanguage()
   const content = language === 'jp' ? jp : en
   const resumePath = language === 'jp' 
-    ? '/resume/Tushar_Garg_Resume_JP.pdf'
+    ? '/resume/Tushar_Garg_履歴書_JP.pdf'
     : '/resume/Tushar_Garg_Resume_EN.pdf'
   if (import.meta.env.DEV) {
     // eslint-disable-next-line no-console
@@ -61,7 +61,15 @@ export default function Contact() {
             <p className="text-sm text-muted mb-4">
               {content.contact.closing}
             </p>
-            <Button href={resumePath} download className="px-6">
+            <Button
+              href={resumePath}
+              download={
+                language === 'jp'
+                  ? 'Tushar_Garg_履歴書_JP.pdf'
+                  : 'Tushar_Garg_Resume_EN.pdf'
+              }
+              className="px-6"
+            >
               Download Resume
             </Button>
           </div>
