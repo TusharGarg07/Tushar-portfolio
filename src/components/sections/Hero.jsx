@@ -10,6 +10,7 @@ export default function Hero() {
   const ref = useScrollFadeIn()
   const { language } = useLanguage()
   const content = language === 'jp' ? jp : en
+  const nameParts = content.hero.name.split(' ')
   return (
     <section id="hero" className="scroll-mt-24" ref={ref}>
       <div className="relative min-h-screen overflow-hidden">
@@ -28,7 +29,10 @@ export default function Hero() {
                   </p>
 
                   <h2 className="mt-3 text-4xl font-bold tracking-tight bg-gradient-to-r from-emerald-400 to-blue-400 bg-clip-text text-transparent sm:text-5xl leading-tight whitespace-nowrap">
-                    {content.hero.name.split(' ')[0]} <span className="text-foreground">{content.hero.name.split(' ')[1]}</span>
+                    {nameParts[0]}
+                    {nameParts[1] && (
+                      <span className="text-foreground"> {nameParts[1]}</span>
+                    )}
                   </h2>
                   
                   <div className="mt-4 inline-flex items-center rounded-full border border-accent/40 px-3 py-1 text-xs text-accent">

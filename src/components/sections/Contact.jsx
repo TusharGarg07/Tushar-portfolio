@@ -1,6 +1,7 @@
 import { useLanguage } from "../../contexts/LanguageContext.jsx"
 import en from "../../content/en"
 import jp from "../../content/jp"
+import Container from '../layout/Container.jsx'
 import Card from '../ui/Card.jsx'
 import SectionTitle from '../ui/SectionTitle.jsx'
 import Button from '../ui/Button.jsx'
@@ -11,6 +12,10 @@ export default function Contact() {
   const resumePath = language === 'jp' 
     ? '/resume/Tushar_Garg_Resume_JP.pdf'
     : '/resume/Tushar_Garg_Resume_EN.pdf'
+  if (import.meta.env.DEV) {
+    // eslint-disable-next-line no-console
+    console.log('Resume path:', resumePath)
+  }
   return (
     <section id="contact" className="section">
       <Container>
@@ -56,9 +61,9 @@ export default function Contact() {
             <p className="text-sm text-muted mb-4">
               {content.contact.closing}
             </p>
-            <a href={resumePath} download className="px-6">
+            <Button href={resumePath} download className="px-6">
               Download Resume
-            </a>
+            </Button>
           </div>
         </div>
       </Container>

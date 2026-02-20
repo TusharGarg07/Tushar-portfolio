@@ -2,28 +2,36 @@ import { createContext, useContext, useState, useEffect } from 'react'
 
 const LanguageContext = createContext()
 
+const getInitialLanguage = () => {
+  if (typeof window === 'undefined') {
+    return 'en'
+  }
+  
+  const savedLanguage = localStorage.getItem('portfolio_language')
+  if (savedLanguage) {
+    return savedLanguage
+  }
+  
+  const browserLanguage = window.navigator.language || window.navigator.languages?.[0] || 'en'
+  return browserLanguage.startsWith('ja') ? 'jp' : 'en'
+}
+
 export function LanguageProvider({ children }) {
-  const [language, setLanguage] = useState(() => {
-    // Check localStorage first
-    const savedLanguage = localStorage.getItem('portfolio_language')
-    if (savedLanguage) {
-      return savedLanguage
-    }
-    
-    // Auto-detect browser language
-    const browserLanguage = navigator.language || navigator.languages?.[0] || 'en'
-    return browserLanguage.startsWith('ja') ? 'jp' : 'en'
-  })
+  const [language, setLanguage] = useState(getInitialLanguage)
 
   useEffect(() => {
     // Save language preference to localStorage
-    localStorage.setItem('portfolio_language', language)
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('portfolio_language', language)
+    }
   }, [language])
 
   const toggleLanguage = () => {
     setLanguage(prev => {
       const newLanguage = prev === 'en' ? 'jp' : 'en'
-      localStorage.setItem('portfolio_language', newLanguage)
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('portfolio_language', newLanguage)
+      }
       return newLanguage
     })
   }
