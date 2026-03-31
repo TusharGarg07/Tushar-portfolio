@@ -8,7 +8,8 @@ import jp from "../../content/jp"
 
 export default function About() {
   const { language } = useLanguage()
-  const content = language === 'jp' ? jp : en
+  const isJP = language === 'jp'
+  const content = isJP ? jp : en
   return (
     <section id="about" className="section">
       <Container>
@@ -53,7 +54,7 @@ export default function About() {
             {/* Education Section */}
             <div className="space-y-4">
               <h3 className="text-lg font-semibold text-foreground flex items-center gap-2">
-                <span className="h-px w-8 bg-accent" />
+                <span className="h-px w-8 transition-colors duration-500" style={{ backgroundColor: isJP ? '#e85d3a' : 'rgb(34 211 238)' }} />
                 {content.about.education.title}
               </h3>
               <div className="grid gap-4">
@@ -66,7 +67,7 @@ export default function About() {
                       </div>
                       <div className="text-right">
                         {item.duration && <p className="text-xs text-muted">{item.duration}</p>}
-                        <p className="text-xs font-medium text-accent">{item.score}</p>
+                        <p className="text-xs font-medium transition-colors duration-500" style={{ color: isJP ? '#e85d3a' : 'rgb(34 211 238)' }}>{item.score}</p>
                       </div>
                     </div>
                   </div>
