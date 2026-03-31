@@ -74,7 +74,7 @@ export default function Hero() {
         {/* JP Mode Overlay */}
         <div 
           className="absolute inset-0 z-0 pointer-events-none"
-          style={{ background: 'rgba(5, 10, 20, 0.82)' }}
+          style={{ background: 'rgba(5, 10, 20, 0.72)' }}
         />
 
         <div className="relative z-10 w-full">

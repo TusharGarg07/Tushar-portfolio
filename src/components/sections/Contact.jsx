@@ -37,7 +37,7 @@ export default function Contact() {
       {isJP && (
         <div 
           className="absolute inset-0 z-0 pointer-events-none"
-          style={{ background: 'rgba(8, 16, 35, 0.85)' }}
+          style={{ background: 'rgba(8, 16, 35, 0.75)' }}
         />
       )}
 

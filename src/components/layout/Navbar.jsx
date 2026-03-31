@@ -69,10 +69,11 @@ export default function Navbar({ activeSection = 'home', setActiveSection = () =
             <span className="text-sm font-semibold tracking-wide text-foreground">
               Portfolio
             </span>
-            <span className="text-xs text-muted">{isJP ? 'AI/データエンジニア' : 'AI/Data Engineer'}</span>
+            {!isJP && <span className="text-xs text-muted">AI/Data Engineer</span>}
+            {isJP && <span className="text-[10px] text-muted whitespace-nowrap">AI/データエンジニア</span>}
           </a>
 
-          <nav className="hidden items-center gap-5 md:flex">
+          <nav className="hidden items-center gap-2 md:flex lg:gap-3">
             {navLinks.map((link) => {
               const id = link.href.replace('#', '')
               const sectionKey = id === 'hero' ? 'home' : id
@@ -88,7 +89,9 @@ export default function Navbar({ activeSection = 'home', setActiveSection = () =
                     setActiveId(sectionKey)
                     setActiveSection(sectionKey)
                   }}
-                  className={`text-sm transition-colors ${
+                  className={`transition-colors whitespace-nowrap ${
+                    isJP ? 'text-[13px]' : 'text-sm'
+                  } ${
                     isActive
                       ? 'text-foreground font-medium'
                       : 'text-muted hover:text-foreground'
@@ -108,8 +111,8 @@ export default function Navbar({ activeSection = 'home', setActiveSection = () =
             })}
           </nav>
 
-          <div className="flex items-center gap-3">
-            <div className="hidden sm:flex items-center gap-3 mr-2">
+          <div className="flex items-center gap-2 lg:gap-3">
+            <div className="hidden xl:flex items-center gap-3 mr-1">
               <a
                 href="https://www.linkedin.com/in/tushargarg25"
                 target="_blank"
@@ -137,18 +140,18 @@ export default function Navbar({ activeSection = 'home', setActiveSection = () =
 
             <button
               onClick={toggleLanguage}
-              className="flex min-w-[80px] items-center justify-center gap-2 rounded-lg border border-border bg-card px-3 py-1.5 text-sm transition-all hover:bg-accent/10 whitespace-nowrap"
+              className="flex min-w-[70px] lg:min-w-[80px] items-center justify-center gap-1.5 rounded-lg border border-border bg-card px-2 py-1.5 text-xs lg:text-sm transition-all hover:bg-accent/10 whitespace-nowrap"
             >
               <span className={`transition-colors ${
                 language === 'en' ? 'text-foreground font-bold' : 'text-muted'
               }`}>
-                {language === 'jp' ? 'EN' : 'EN'}
+                EN
               </span>
               <span className="text-muted">|</span>
               <span className={`transition-colors ${
                 language === 'jp' ? 'text-foreground font-bold' : 'text-muted'
               }`}>
-                {language === 'jp' ? '日本語' : 'JP'}
+                日本語
               </span>
             </button>
             <Button
@@ -159,29 +162,14 @@ export default function Navbar({ activeSection = 'home', setActiveSection = () =
                 setActiveId('contact')
                 setActiveSection('contact')
               }}
-              className="hidden sm:inline-flex"
+              className="hidden sm:inline-flex px-3 lg:px-5"
               style={{ 
                 borderColor: isJP ? '#e85d3a40' : undefined,
                 backgroundColor: isJP ? 'rgba(5, 10, 20, 0.5)' : undefined
               }}
             >
-              {isJP ? 'お問い合わせ' : 'Contact'}
+              {isJP ? '連絡' : 'Contact'}
             </Button>
-            
-            {/* Navbar Adaptive Focus Label - properly translated or hidden */}
-            {adaptiveContext && (
-              <div className="hidden lg:block text-[10px] uppercase tracking-widest text-muted/60">
-                {isJP ? (
-                  <span>● フォーカス：{
-                    adaptiveContext === 'technical_focus' ? '技術評価' :
-                    adaptiveContext === 'career_focus' ? 'キャリア' :
-                    adaptiveContext === 'japan_focus' ? '日本' : '全般'
-                  }</span>
-                ) : (
-                  <span>● Focus: {adaptiveContext.replace('_', ' ')}</span>
-                )}
-              </div>
-            )}
           </div>
         </div>
 

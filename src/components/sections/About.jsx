@@ -12,11 +12,11 @@ export default function About() {
   const content = isJP ? jp : en
   return (
     <section id="about" className="relative section overflow-hidden">
-      {/* JP Mode Overlay - Odd Section */}
+      {/* JP Mode Overlay - Specific About Overlay */}
       {isJP && (
         <div 
           className="absolute inset-0 z-0 pointer-events-none"
-          style={{ background: 'rgba(5, 10, 20, 0.82)' }}
+          style={{ background: 'rgba(5, 10, 20, 0.68)' }}
         />
       )}
 
@@ -38,7 +38,7 @@ export default function About() {
 
           {/* Right side - Text content */}
           <div className="flex flex-col justify-center space-y-8">
-            <div className={`${isJP ? 'text-white/75' : 'text-muted'}`}>
+            <div className={`${isJP ? '' : 'text-muted'}`}>
               {language === 'en' ? (
                 <ul className="space-y-[12px]">
                   {content.about.paragraphs.map((paragraph, index) => (
@@ -49,12 +49,45 @@ export default function About() {
                   ))}
                 </ul>
               ) : (
-                <div className="space-y-[16px] text-[16px] leading-[1.75]">
-                  {content.about.paragraphs.map((paragraph, index) => (
-                    <p key={index}>
-                      {paragraph}
+                <div className="space-y-8">
+                  {/* Stylized Quote Block */}
+                  <div 
+                    className="border-l-[3px] pl-5 py-1 transition-all duration-500"
+                    style={{ borderLeftColor: '#e85d3a' }}
+                  >
+                    <p className="text-[22px] font-light leading-relaxed tracking-wider text-white/90 italic">
+                      「動くだけでは足りない。<br />
+                      　現場で使えるものをつくる。」
                     </p>
-                  ))}
+                  </div>
+
+                  {/* Concept Cards */}
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    {[
+                      { icon: '⚙️', label: '専門領域', value: 'ERP・製造AI・環境分析・バイオ' },
+                      { icon: '🔁', label: '開発スタイル', value: '試行錯誤と継続的な改善' },
+                      { icon: '🎯', label: '目標', value: '日本で実用的なAI開発に貢献' }
+                    ].map((card, i) => (
+                      <div 
+                        key={i}
+                        className="bg-white/5 border border-white/10 border-t-2 rounded-lg p-4 transition-all duration-300 hover:bg-white/10"
+                        style={{ borderTopColor: '#e85d3a' }}
+                      >
+                        <div className="flex items-center gap-2 mb-2">
+                          <span>{card.icon}</span>
+                          <span className="text-[10px] uppercase tracking-widest text-white/40">{card.label}</span>
+                        </div>
+                        <p className="text-xs font-bold text-white leading-tight">
+                          {card.value}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Clean Closing Sentence */}
+                  <p className="text-sm italic text-white/55">
+                    データ処理からデプロイまで、一気通貫で開発できるエンジニアを目指しています。
+                  </p>
                 </div>
               )}
             </div>
