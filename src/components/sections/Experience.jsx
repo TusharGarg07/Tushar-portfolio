@@ -7,7 +7,8 @@ import SectionTitle from '../ui/SectionTitle.jsx'
 
 export default function Experience() {
   const { language } = useLanguage()
-  const content = language === 'jp' ? jp : en
+  const isJP = language === 'jp'
+  const content = isJP ? jp : en
   return (
     <section id="experience" className="section">
       <Container>
@@ -28,7 +29,10 @@ export default function Experience() {
               >
                 {/* Duration - Left side */}
                 <div className="flex items-center md:justify-end">
-                  <span className="text-sm font-medium text-accent md:text-right">
+                  <span 
+                    className="text-sm font-medium md:text-right transition-colors duration-500"
+                    style={{ color: isJP ? '#e85d3a' : 'rgb(34 211 238)' }}
+                  >
                     {item.duration}
                   </span>
                 </div>
@@ -36,9 +40,15 @@ export default function Experience() {
                 {/* Content - Right side */}
                 <div className="relative md:pl-8">
                   {/* Timeline dot */}
-                  <div className="absolute -left-[5px] top-1/2 hidden h-2.5 w-2.5 -translate-y-1/2 rounded-full bg-accent md:block" />
+                  <div 
+                    className="absolute -left-[5px] top-1/2 hidden h-2.5 w-2.5 -translate-y-1/2 rounded-full md:block transition-colors duration-500" 
+                    style={{ backgroundColor: isJP ? '#e85d3a' : 'rgb(34 211 238)' }}
+                  />
 
-                  <Card className="!bg-white/[0.04] !border-white/[0.08] border-l-[3px] !border-l-accent shadow-none hover:!bg-white/[0.06] transition-all">
+                  <Card 
+                    className="!bg-white/[0.04] !border-white/[0.08] border-l-[3px] shadow-none hover:!bg-white/[0.06] transition-all duration-500"
+                    style={{ borderLeftColor: isJP ? '#e85d3a' : 'rgb(34 211 238)' }}
+                  >
                     <div className="flex flex-col gap-1">
                       <h3 className="text-base font-semibold text-foreground">
                         {item.role}

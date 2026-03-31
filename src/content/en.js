@@ -2,10 +2,16 @@ export default {
   hero: {
     greeting: "Hi, I'm",
     name: "Tushar Garg",
+    label: "/ AI & DATA ENGINEER",
     headline: "Building AI Systems for Manufacturing & Environmental Intelligence",
     subline: "AI & Data Analysis Intern | Full-Stack Developer | Bioinformatics Background",
     availability: "Currently open to AI, Data, and Industrial Technology opportunities.",
-    stats: ["4+ Projects", "2 Internships", "JLPT N3", "5 Languages"],
+    stats: [
+      { number: "4", label: "Projects", suffix: "+" },
+      { number: "2", label: "Internships" },
+      { number: "JLPT N3", label: "Japanese" },
+      { number: "5", label: "Languages" }
+    ],
     roles: ["AI Engineer", "Data Analyst", "Full-Stack Developer", "Manufacturing AI Specialist"],
     description: "Building AI-driven systems for manufacturing inspection, environmental analytics, and real-world data applications.",
     buttons: {
@@ -13,6 +19,27 @@ export default {
       downloadResume: "Download Resume",
       contactMe: "Contact Me"
     },
+    quickCards: [
+      {
+        label: "/ ABOUT ME",
+        title: "About Me",
+        text: "Biotechnology student building real-world AI systems for manufacturing inspection and environmental analytics.",
+        linkText: "Learn More →",
+        linkHref: "#about"
+      },
+      {
+        label: "/ MY WORK",
+        title: "Key Projects",
+        text: "FinKizuna ERP, VERITAS, ZenKensa, HIV Drug Resistance — production-grade AI systems with measurable impact.",
+        linkText: "Browse Projects →",
+        linkHref: "#projects"
+      }
+    ],
+    socialLinks: [
+      { platform: "LinkedIn", href: "https://www.linkedin.com/in/tushargarg25" },
+      { platform: "GitHub", href: "https://github.com/TusharGarg07" },
+      { platform: "Email", href: "mailto:tushargarg2425@gmail.com" }
+    ],
     cards: {
       focus: {
         title: "Focus",
