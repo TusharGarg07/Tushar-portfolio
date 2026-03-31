@@ -95,7 +95,8 @@ export default {
       description: "コンピュータビジョンおよび軽量な機械学習モデルを活用し、製造業向けの検査支援システムを開発しました。",
       impact: "検査工程の効率化および品質判断の支援を目的としています。",
       technologies: ["Python", "Computer Vision", "TensorFlow Lite", "FastAPI"],
-      githubUrl: "https://github.com/TusharGarg07/ZenKensa"
+      githubUrl: "https://github.com/TusharGarg07/ZenKensa",
+      liveUrl: "https://zenkensa-ai.onrender.com"
     },
     {
       id: "finkizuna",
@@ -103,7 +104,8 @@ export default {
       description: "Isolation ForestとSHAPを用いた不正検知（精度約94%）を実装した、マルチテナント対応の本番グレードSaaS ERPシステム。稟議ワークフローの自動化とリアルタイム意思決定支援を実現。CI/CD・Nginx・Dockerで展開。",
       impact: "不正検知精度 約94%",
       technologies: ["FastAPI", "PostgreSQL", "AWS", "Docker", "CI/CD", "Isolation Forest"],
-      githubUrl: "https://github.com/TusharGarg07"
+      githubUrl: "https://github.com/TusharGarg07",
+      liveUrl: "https://fin-kizuna-erp-i5o9.vercel.app/"
     },
     {
       id: "veritas",
@@ -111,7 +113,8 @@ export default {
       description: "複数パラメータのセンサデータを分析するAI駆動の室内空気質モニタリングシステム。データパイプライン・リスクスコアリング・ダッシュボードを実装。",
       impact: "リアルタイムの複数パラメータリスクスコアリング",
       technologies: ["Python", "Machine Learning", "Pandas", "NumPy", "FastAPI"],
-      githubUrl: "https://github.com/TusharGarg07/VERITAS"
+      githubUrl: "https://github.com/TusharGarg07/VERITAS",
+      liveUrl: "https://veritas-ai-system.onrender.com/"
     },
     {
       id: "hiv-drug-resistance",
@@ -122,6 +125,10 @@ export default {
       githubUrl: "https://github.com/TusharGarg07/HIV-Drug-Resistance"
     }
   ],
+  projectButtons: {
+    liveDemo: "デモを見る →",
+    github: "GitHub"
+  },
   experience: {
     heading: "職歴",
     subtitle: "AI・製造業検査・環境分析における実務インターンシップ経験。",

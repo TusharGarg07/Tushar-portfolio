@@ -25,6 +25,10 @@ function GlobalBackground() {
         backgroundPosition: 'center top',
         backgroundRepeat: 'no-repeat',
         backgroundColor: '#0b1120',
+        ...(isJP ? {} : {
+          backgroundImage: 'radial-gradient(rgba(45,212,191,0.08) 1px, transparent 1px)',
+          backgroundSize: '32px 32px'
+        })
       }}
     >
       <AnimatePresence>

@@ -90,7 +90,8 @@ export default {
       description: "Developed an AI-assisted metal surface inspection system using computer vision and lightweight machine learning models. Designed to support inspection workflows in manufacturing environments.",
       impact: "Focused on improving inspection efficiency and assisting decision-making processes.",
       technologies: ["Python", "Computer Vision", "TensorFlow Lite", "FastAPI"],
-      githubUrl: "https://github.com/TusharGarg07/ZenKensa"
+      githubUrl: "https://github.com/TusharGarg07/ZenKensa",
+      liveUrl: "https://zenkensa-ai.onrender.com"
     },
     {
       id: "finkizuna",
@@ -98,7 +99,8 @@ export default {
       description: "Production-grade multi-tenant SaaS ERP with fraud detection (~94% accuracy) using Isolation Forest + SHAP. Automated Ringi workflows and real-time decision support. Deployed with CI/CD, Nginx, and Docker.",
       impact: "94% fraud detection accuracy",
       technologies: ["FastAPI", "PostgreSQL", "AWS", "Docker", "CI/CD", "Isolation Forest"],
-      githubUrl: "https://github.com/TusharGarg07"
+      githubUrl: "https://github.com/TusharGarg07",
+      liveUrl: "https://fin-kizuna-erp-i5o9.vercel.app/"
     },
     {
       id: "veritas",
@@ -106,7 +108,8 @@ export default {
       description: "AI-driven indoor air quality monitoring system analyzing multi-parameter sensor data. Designed data pipelines with Pandas/NumPy, implemented risk scoring, visualization dashboards, and report generation.",
       impact: "Real-time multi-parameter risk scoring",
       technologies: ["Python", "Machine Learning", "Pandas", "NumPy", "FastAPI"],
-      githubUrl: "https://github.com/TusharGarg07/VERITAS"
+      githubUrl: "https://github.com/TusharGarg07/VERITAS",
+      liveUrl: "https://veritas-ai-system.onrender.com/"
     },
     {
       id: "hiv-drug-resistance",
@@ -117,6 +120,10 @@ export default {
       githubUrl: "https://github.com/TusharGarg07/HIV-Drug-Resistance"
     }
   ],
+  projectButtons: {
+    liveDemo: "Live Demo →",
+    github: "GitHub"
+  },
   experience: {
     heading: "Experience",
     subtitle: "Professional internships in AI systems, manufacturing inspection, and environmental analytics.",

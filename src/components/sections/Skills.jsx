@@ -29,8 +29,20 @@ export default function Skills() {
           {content.skills.map((skillCategory) => (
             <Card key={skillCategory.id}>
               <h3 
-                className={`text-base font-bold mb-2 transition-colors duration-500 ${isJP ? 'text-white/92' : 'text-accent'}`}
-                style={{ color: isJP ? '#e85d3a' : undefined }}
+                className={`text-base font-bold mb-2 transition-colors duration-500 ${
+                  isJP 
+                    ? 'text-white/92' 
+                    : ''
+                }`}
+                style={{ 
+                  color: isJP ? '#e85d3a' : undefined,
+                  ...(isJP ? {} : {
+                    background: 'linear-gradient(135deg, #ffffff 0%, #2dd4bf 100%)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text'
+                  })
+                }}
               >
                 {skillCategory.category}
               </h3>
@@ -38,9 +50,18 @@ export default function Skills() {
                 {(skillCategory.items || []).map((skill) => (
                   <span
                     key={skill}
-                    className={`rounded-full border border-border bg-card px-2.5 py-1 text-xs transition-all duration-500 hover:border-accent/40 ${isJP ? 'text-white/75' : 'text-muted'}`}
+                    className={`rounded-full border px-2.5 py-1 text-xs transition-all duration-500 hover:border-accent/40 ${
+                      isJP 
+                        ? 'text-white/75' 
+                        : 'text-muted hover:bg-accent/15'
+                    }`}
                     style={{ 
-                      borderColor: isJP ? 'rgba(232, 93, 58, 0.1)' : undefined,
+                      ...(isJP ? {
+                        borderColor: 'rgba(232, 93, 58, 0.1)',
+                      } : {
+                        borderColor: 'rgba(45,212,191,0.18)',
+                        backgroundColor: 'rgba(45,212,191,0.07)'
+                      })
                     }}
                   >
                     {skill}

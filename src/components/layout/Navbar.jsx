@@ -50,10 +50,16 @@ export default function Navbar({ activeSection = 'home', setActiveSection = () =
         isScrolled
           ? isJP 
             ? 'border-b border-white/10 bg-[#050a14]/92 backdrop-blur-[16px]' 
-            : 'border-b border-border bg-background/70 backdrop-blur'
+            : 'border-b border-border backdrop-blur'
           : 'border-b border-transparent bg-transparent'
       }`}
-      style={isScrolled && isJP ? { borderBottom: '1px solid rgba(255,255,255,0.08)' } : {}}
+      style={{
+        ...(isScrolled && isJP ? { borderBottom: '1px solid rgba(255,255,255,0.08)' } : {}),
+        ...(isScrolled && !isJP ? {
+          background: 'linear-gradient(180deg, rgba(8,12,28,0.98) 0%, rgba(8,12,28,0.85) 100%)',
+          borderBottom: '1px solid rgba(45,212,191,0.15)'
+        } : {})
+      }}
     >
       <Container>
         <div className="flex h-16 items-center justify-between gap-4">

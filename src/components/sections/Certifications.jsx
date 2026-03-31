@@ -27,7 +27,18 @@ export default function Certifications() {
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {content.certifications.map((cert) => (
-            <Card key={cert.id} className="hover:border-accent/40 transition-colors duration-500" style={{ borderLeftColor: isJP ? '#e85d3a' : 'rgb(34 211 238)', borderLeftWidth: '2px' }}>
+            <Card 
+              key={cert.id} 
+              className={`hover:border-accent/40 transition-all duration-500 ${
+                isJP 
+                  ? '' 
+                  : 'hover:shadow-[0_4px_20px_rgba(45,212,191,0.15)] hover:-translate-y-1'
+              }`}
+              style={{ 
+                borderLeftColor: isJP ? '#e85d3a' : '#2dd4bf', 
+                borderLeftWidth: '2px'
+              }}
+            >
               <h3 className={`text-base font-semibold ${isJP ? 'text-white/92' : 'text-foreground'}`}>
                 {cert.title}
               </h3>

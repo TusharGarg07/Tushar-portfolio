@@ -54,8 +54,18 @@ export default function Experience() {
                   />
 
                   <Card 
-                    className={`!border-l-[3px] shadow-none transition-all duration-500 ${isJP ? '!bg-[#080c1c]/90 !border-white/15' : '!bg-white/[0.04] !border-white/[0.08] hover:!bg-white/[0.06]'}`}
-                    style={{ borderLeftColor: isJP ? '#e85d3a' : 'rgb(34 211 238)' }}
+                    className={`!border-l-[3px] shadow-none transition-all duration-500 ${
+                      isJP 
+                        ? '!bg-[#080c1c]/90 !border-white/15' 
+                        : '!bg-white/[0.04] !border-white/[0.08] hover:!bg-white/[0.06] hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(45,212,191,0.1)]'
+                    }`}
+                    style={{ 
+                      borderLeftColor: isJP ? '#e85d3a' : 'rgb(34 211 238)',
+                      ...(isJP ? {} : {
+                        background: 'linear-gradient(135deg, rgba(15,20,40,0.9) 0%, rgba(20,28,55,0.9) 100%)',
+                        borderLeftWidth: '3px'
+                      })
+                    }}
                   >
                     <div className="flex flex-col gap-1">
                       <h3 className={`text-base font-semibold ${isJP ? 'text-white/92' : 'text-foreground'}`}>

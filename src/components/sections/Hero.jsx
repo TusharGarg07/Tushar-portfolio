@@ -273,6 +273,27 @@ export default function Hero() {
       <div className="relative min-h-screen overflow-hidden">
         {/* Background Blobs */}
         <div className="pointer-events-none absolute inset-0">
+          {/* EN Mode: Add radial gradient glows */}
+          {!isJP && (
+            <>
+              <div 
+                className="absolute top-[20%] left-[10%] w-[500px] h-[500px] rounded-full opacity-100"
+                style={{
+                  background: 'radial-gradient(circle, rgba(45,212,191,0.06) 0%, transparent 70%)',
+                  pointerEvents: 'none',
+                  zIndex: 0
+                }}
+              />
+              <div 
+                className="absolute bottom-[20%] right-[10%] w-[500px] h-[500px] rounded-full opacity-100"
+                style={{
+                  background: 'radial-gradient(circle, rgba(99,102,241,0.05) 0%, transparent 70%)',
+                  pointerEvents: 'none',
+                  zIndex: 0
+                }}
+              />
+            </>
+          )}
           <div className="absolute -left-40 -top-40 h-[600px] w-[600px] rounded-full bg-accent/5 blur-3xl" />
           <div className="absolute -bottom-40 -right-40 h-[600px] w-[600px] rounded-full bg-accent/5 blur-3xl" />
         </div>

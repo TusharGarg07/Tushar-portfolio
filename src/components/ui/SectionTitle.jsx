@@ -6,12 +6,31 @@ export default function SectionTitle({ title, subtitle }) {
 
   return (
     <div>
-      <h2 className={`text-3xl font-bold tracking-tight sm:text-4xl ${isJP ? 'text-white/92' : 'text-foreground'}`}>
+      <h2 
+        className={`text-3xl font-bold tracking-tight sm:text-4xl transition-all duration-500 ${
+          isJP ? 'text-white/92' : ''
+        }`}
+        style={{
+          ...(isJP ? {} : {
+            background: 'linear-gradient(135deg, #ffffff 0%, #2dd4bf 100%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text'
+          })
+        }}
+      >
         {title}
       </h2>
       <div 
-        className="mt-3 h-px w-14 transition-colors duration-500" 
-        style={{ backgroundColor: isJP ? '#e85d3a' : 'rgb(34 211 238 / 0.8)' }}
+        className="mt-2 rounded-full transition-all duration-500" 
+        style={{ 
+          width: '48px',
+          height: '3px',
+          background: isJP 
+            ? '#e85d3a' 
+            : 'linear-gradient(90deg, #2dd4bf, #6366f1)',
+          borderRadius: '2px'
+        }}
       />
       {subtitle ? (
         <p className={`mt-4 max-w-2xl text-sm leading-relaxed ${isJP ? 'text-white/50' : 'text-muted'}`}>
