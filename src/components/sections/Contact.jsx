@@ -33,11 +33,13 @@ export default function Contact() {
   }
   return (
     <section id="contact" className="relative section overflow-hidden">
-      {/* JP Mode Overlay - Even Section */}
+      {/* JP Mode Overlay - Warm Gradient Overlay */}
       {isJP && (
         <div 
           className="absolute inset-0 z-0 pointer-events-none"
-          style={{ background: 'rgba(8, 16, 35, 0.75)' }}
+          style={{ 
+            background: 'linear-gradient(135deg, rgba(40, 15, 8, 0.65) 0%, rgba(20, 10, 5, 0.55) 40%, rgba(15, 8, 3, 0.45) 100%)' 
+          }}
         />
       )}
 

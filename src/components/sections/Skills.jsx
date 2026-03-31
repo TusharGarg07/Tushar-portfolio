@@ -15,7 +15,7 @@ export default function Skills() {
       {isJP && (
         <div 
           className="absolute inset-0 z-0 pointer-events-none"
-          style={{ background: 'rgba(8, 16, 35, 0.75)' }}
+          style={{ background: 'rgba(12, 8, 5, 0.78)' }}
         />
       )}
 

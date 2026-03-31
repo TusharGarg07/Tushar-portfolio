@@ -8,9 +8,9 @@ export default function Card({ className = '', children, ...props }) {
     <div
       className={`glass-card glass-card-hover p-6 transition-all duration-300 ${className}`}
       style={isJP ? {
-        background: 'rgba(8, 12, 28, 0.90)',
-        border: '1px solid rgba(255, 255, 255, 0.15)',
-        backdropFilter: 'blur(12px)',
+        background: 'rgba(35, 15, 8, 0.55)',
+        border: '1px solid rgba(232, 93, 58, 0.15)',
+        backdropFilter: 'blur(10px)',
         boxShadow: '0 4px 24px rgba(0,0,0,0.5)'
       } : {}}
       {...props}

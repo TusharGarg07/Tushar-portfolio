@@ -16,7 +16,7 @@ export default function About() {
       {isJP && (
         <div 
           className="absolute inset-0 z-0 pointer-events-none"
-          style={{ background: 'rgba(5, 10, 20, 0.68)' }}
+          style={{ background: 'rgba(15, 8, 5, 0.68)' }}
         />
       )}
 

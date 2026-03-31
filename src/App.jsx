@@ -36,7 +36,7 @@ function GlobalBackground() {
             transition={{ duration: 0.6 }}
             className="absolute inset-0"
             style={{
-              background: 'linear-gradient(to right, rgba(5, 10, 20, 0.85) 0%, rgba(5, 10, 20, 0.6) 50%, rgba(5, 10, 20, 0.3) 100%)'
+              background: 'rgba(15, 8, 5, 0.4)' // Reduced global overlay to let individual section overlays work
             }}
           />
         )}

@@ -14,7 +14,7 @@ export default function Languages() {
       {isJP && (
         <div 
           className="absolute inset-0 z-0 pointer-events-none"
-          style={{ background: 'rgba(5, 10, 20, 0.72)' }}
+          style={{ background: 'rgba(12, 8, 5, 0.78)' }}
         />
       )}
 
