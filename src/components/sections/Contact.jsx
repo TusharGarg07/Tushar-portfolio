@@ -1,4 +1,5 @@
 import { useLanguage } from "../../contexts/LanguageContext.jsx"
+import { useEffect, useState } from 'react'
 import en from "../../content/en"
 import jp from "../../content/jp"
 import Container from '../layout/Container.jsx'
@@ -10,8 +11,21 @@ export default function Contact() {
   const { language } = useLanguage()
   const content = language === 'jp' ? jp : en
   const resumePath = language === 'jp' 
-    ? '/resume/Tushar_Garg_履歴書_JP.pdf'
-    : '/resume/Tushar_Garg_Resume_EN.pdf'
+    ? '/resume/履歴書_トゥシャール・ガルグ_JN.pdf'
+    : '/resume/Resume_TusharGarg.pdf'
+  const [resumeRecommended, setResumeRecommended] = useState(false)
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      try {
+        const recommended = localStorage.getItem('portfolio_resume_recommended') === 'true'
+        setResumeRecommended(recommended)
+      } catch {
+        // ignore localStorage errors
+      }
+    }
+  }, [])
+
   if (import.meta.env.DEV) {
     // eslint-disable-next-line no-console
     console.log('Resume path:', resumePath)
@@ -31,10 +45,10 @@ export default function Contact() {
             </p>
             
             <a
-              href="mailto:phenominal0525@gmail.com?subject=Portfolio%20Inquiry"
+              href="mailto:tushargarg2425@gmail.com?subject=Portfolio%20Inquiry"
               className="text-base font-medium text-accent hover:text-accent/80 transition-colors"
             >
-              phenominal0525@gmail.com
+              tushargarg2425@gmail.com
             </a>
             
             <div className="flex justify-center gap-6">
@@ -65,10 +79,14 @@ export default function Contact() {
               href={resumePath}
               download={
                 language === 'jp'
-                  ? 'Tushar_Garg_履歴書_JP.pdf'
-                  : 'Tushar_Garg_Resume_EN.pdf'
+                  ? '履歴書_トゥシャール・ガルグ_JN.pdf'
+                  : 'Resume_TusharGarg.pdf'
               }
-              className="px-6"
+              className={`px-6 ${
+                resumeRecommended
+                  ? 'animate-pulse shadow-[0_0_20px_rgba(34,211,238,0.4)]'
+                  : ''
+              }`}
             >
               Download Resume
             </Button>
