@@ -4,6 +4,7 @@ import Card from '../ui/Card.jsx'
 import useScrollFadeIn from '../../hooks/useScrollFadeIn.js'
 import { useLanguage } from "../../contexts/LanguageContext.jsx"
 import { useEffect, useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import en from "../../content/en"
 import jp from "../../content/jp"
 
@@ -13,6 +14,14 @@ export default function Hero() {
   const content = language === 'jp' ? jp : en
   const nameParts = content.hero.name.split(' ')
   const [adaptiveContext, setAdaptiveContext] = useState(null)
+  const [roleIndex, setRoleIndex] = useState(0)
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setRoleIndex((prev) => (prev + 1) % content.hero.roles.length)
+    }, 2500)
+    return () => clearInterval(timer)
+  }, [content.hero.roles.length])
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -41,21 +50,38 @@ export default function Hero() {
                     {content.hero.greeting}
                   </p>
 
-                  <h2 className="mt-3 text-5xl font-extrabold tracking-tight sm:text-6xl lg:text-7xl leading-tight">
-                    <span className="bg-gradient-to-r from-accent via-accent-secondary to-accent bg-clip-text text-transparent animate-gradient-slow bg-[length:200%_auto]">
+                  <h2 className="mt-3 font-extrabold tracking-tight leading-tight" style={{ fontSize: 'clamp(2rem, 6vw, 4.5rem)' }}>
+                    <span className="bg-gradient-to-r from-accent via-accent-secondary to-accent bg-clip-text text-transparent animate-gradient-slow bg-[length:200%_auto] md:whitespace-nowrap">
                       {nameParts[0]}
                     </span>
                     {nameParts[1] && (
-                      <span className="text-foreground"> {nameParts[1]}</span>
+                      <span className="text-foreground md:whitespace-nowrap"> {nameParts[1]}</span>
                     )}
                   </h2>
                   
-                  <div className="mt-4 inline-flex items-center rounded-full border border-accent/40 px-3 py-1 text-xs text-accent">
-                    🇯🇵 {language === 'jp' ? '日本での就職希望' : 'Seeking Opportunities in Japan'}
+                  <div className="mt-4 flex flex-wrap items-center gap-3">
+                    <div className="inline-flex items-center rounded-full border border-accent/40 px-3 py-1 text-xs text-accent">
+                      🇯🇵 {language === 'jp' ? '日本での就職希望' : 'Seeking Opportunities in Japan'}
+                    </div>
                   </div>
                 </div>
 
-                <h1 className="mt-3 text-4xl font-bold tracking-tight text-foreground sm:text-6xl">
+                <div className="mt-6 h-8 overflow-hidden">
+                  <AnimatePresence mode="wait">
+                    <motion.p
+                      key={roleIndex}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      transition={{ duration: 0.5 }}
+                      className="text-lg font-semibold text-accent"
+                    >
+                      {content.hero.roles[roleIndex]}
+                    </motion.p>
+                  </AnimatePresence>
+                </div>
+
+                <h1 className="mt-2 text-4xl font-bold tracking-tight text-foreground sm:text-6xl">
                   {content.hero.headline}
                 </h1>
 
@@ -63,9 +89,24 @@ export default function Hero() {
                   {content.hero.subline}
                 </p>
 
+                {/* Animated Stats Row */}
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {content.hero.stats.map((stat, i) => (
+                    <motion.span
+                      key={stat}
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: 0.5 + i * 0.1 }}
+                      className="inline-flex items-center rounded-full border border-accent/20 bg-accent/5 px-3 py-1 text-xs font-medium text-accent-secondary"
+                    >
+                      {stat}
+                    </motion.span>
+                  ))}
+                </div>
+
                 {/* Hero Adaptive Micro Context */}
                 {adaptiveContext && (
-                  <p className="mt-2 max-w-2xl text-xs leading-relaxed text-muted/70">
+                  <p className="mt-4 max-w-2xl text-xs leading-relaxed text-muted/70">
                     {language === 'jp' ? (
                       adaptiveContext === 'technical_focus' && '技術評価に最適化されています'
                       || adaptiveContext === 'career_focus' && '実践的な業界貢献に焦点を当てています'
@@ -136,31 +177,35 @@ export default function Hero() {
                 <div className="relative animate-float-slow rounded-[28px] border border-border/50 bg-card/60 p-8 shadow-glass backdrop-blur-xl">
                   <div className="flex items-center justify-between">
                     <p className="text-xs font-bold uppercase tracking-widest text-accent/80">
-                      Abstract Signal
+                      {language === 'jp' ? 'システム概要' : 'System Overview'}
                     </p>
                     <div className="flex gap-1">
-                      <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
+                      <span className="h-1.5 w-1.5 rounded-full bg-accent animate-ping" />
                       <span className="h-1.5 w-1.5 rounded-full bg-accent-secondary animate-pulse [animation-delay:200ms]" />
                     </div>
                   </div>
 
                   <div className="mt-8 space-y-5">
-                    <div className="h-2 w-full rounded-full bg-white/5 overflow-hidden">
-                      <div className="h-full w-4/5 bg-gradient-to-r from-accent to-accent-secondary rounded-full animate-pulse-slow" />
+                    <div className="h-2 w-full rounded-full bg-white/5 overflow-hidden relative">
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-shimmer" style={{ backgroundSize: '200% 100%' }} />
+                      <div className="h-full w-4/5 bg-gradient-to-r from-accent to-accent-secondary rounded-full" />
                     </div>
-                    <div className="h-2 w-3/4 rounded-full bg-white/5 overflow-hidden">
-                      <div className="h-full w-3/5 bg-gradient-to-r from-accent to-accent-secondary rounded-full animate-pulse-slow [animation-delay:400ms]" />
+                    <div className="h-2 w-3/4 rounded-full bg-white/5 overflow-hidden relative">
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-shimmer" style={{ backgroundSize: '200% 100%', animationDelay: '400ms' }} />
+                      <div className="h-full w-3/5 bg-gradient-to-r from-accent to-accent-secondary rounded-full" />
                     </div>
-                    <div className="h-2 w-5/6 rounded-full bg-white/5 overflow-hidden">
-                      <div className="h-full w-2/3 bg-gradient-to-r from-accent to-accent-secondary rounded-full animate-pulse-slow [animation-delay:800ms]" />
+                    <div className="h-2 w-5/6 rounded-full bg-white/5 overflow-hidden relative">
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-shimmer" style={{ backgroundSize: '200% 100%', animationDelay: '800ms' }} />
+                      <div className="h-full w-2/3 bg-gradient-to-r from-accent to-accent-secondary rounded-full" />
                     </div>
                   </div>
 
                   <div className="mt-10 grid grid-cols-3 gap-4">
                     {[1, 2, 3].map((i) => (
-                      <div key={i} className="h-20 rounded-2xl border border-white/10 bg-white/5 transition-all duration-500 hover:border-accent/40 hover:bg-accent/5 group">
+                      <div key={i} className="h-20 rounded-2xl border border-white/10 bg-white/5 transition-all duration-500 hover:border-accent/40 hover:bg-accent/5 group overflow-hidden relative">
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-shimmer" style={{ backgroundSize: '200% 100%', animationDelay: `${i * 300}ms` }} />
                         <div className="h-full w-full flex items-center justify-center opacity-20 group-hover:opacity-100 transition-opacity">
-                          <div className="h-8 w-8 rounded-lg bg-accent/20 border border-accent/20 animate-pulse-slow" />
+                          <div className="h-8 w-8 rounded-lg bg-accent/20 border border-accent/20" />
                         </div>
                       </div>
                     ))}

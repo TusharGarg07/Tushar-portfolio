@@ -12,8 +12,8 @@ export default function Experience() {
     <section id="experience" className="section">
       <Container>
         <SectionTitle
-          title="Experience"
-          subtitle="Professional internships in AI systems, manufacturing inspection, and environmental analytics."
+          title={content.experience.heading}
+          subtitle={content.experience.subtitle}
         />
 
         <div className="relative mt-12">
@@ -21,7 +21,7 @@ export default function Experience() {
           <div className="absolute left-0 top-0 bottom-0 hidden w-px bg-gradient-to-b from-accent/50 via-accent/30 to-transparent md:left-[140px] md:block" />
 
           <div className="space-y-10">
-            {content.experience.map((item) => (
+            {content.experience.items.map((item) => (
               <div
                 key={item.id}
                 className="relative grid gap-4 md:grid-cols-[140px_1fr] md:gap-8"
@@ -29,7 +29,7 @@ export default function Experience() {
                 {/* Duration - Left side */}
                 <div className="flex items-center md:justify-end">
                   <span className="text-sm font-medium text-accent md:text-right">
-                    {item.period}
+                    {item.duration}
                   </span>
                 </div>
 
@@ -38,7 +38,7 @@ export default function Experience() {
                   {/* Timeline dot */}
                   <div className="absolute -left-[5px] top-1/2 hidden h-2.5 w-2.5 -translate-y-1/2 rounded-full bg-accent md:block" />
 
-                  <Card>
+                  <Card className="!bg-white/[0.04] !border-white/[0.08] border-l-[3px] !border-l-accent shadow-none hover:!bg-white/[0.06] transition-all">
                     <div className="flex flex-col gap-1">
                       <h3 className="text-base font-semibold text-foreground">
                         {item.role}
@@ -57,17 +57,6 @@ export default function Experience() {
                         </li>
                       ))}
                     </ul>
-
-                    <div className="mt-5 flex flex-wrap gap-2">
-                      {(item.technologies || []).map((tech) => (
-                        <span
-                          key={tech}
-                          className="rounded-full border border-border bg-card px-2.5 py-1 text-xs text-muted"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
                   </Card>
                 </div>
               </div>

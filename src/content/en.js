@@ -5,6 +5,8 @@ export default {
     headline: "Building AI Systems for Manufacturing & Environmental Intelligence",
     subline: "AI & Data Analysis Intern | Full-Stack Developer | Bioinformatics Background",
     availability: "Currently open to AI, Data, and Industrial Technology opportunities.",
+    stats: ["4+ Projects", "2 Internships", "JLPT N3", "5 Languages"],
+    roles: ["AI Engineer", "Data Analyst", "Full-Stack Developer", "Manufacturing AI Specialist"],
     description: "Building AI-driven systems for manufacturing inspection, environmental analytics, and real-world data applications.",
     buttons: {
       viewProjects: "View Projects",
@@ -88,18 +90,35 @@ export default {
       githubUrl: "https://github.com/TusharGarg07/HIV-Drug-Resistance"
     }
   ],
-  experience: [
-    {
-      role: "IT & Data Analysis Intern (AI / Manufacturing Systems)",
-      company: "ZenKensa – Manufacturing Inspection System",
-      duration: "Dec 2025 – Present",
-      points: [
-        "Contributed to the development of an AI-assisted metal surface inspection system.",
-        "Implemented computer vision pipelines and lightweight ML models.",
-        "Supported workflow automation and decision-support system design."
-      ]
-    }
-  ],
+  experience: {
+    heading: "Experience",
+    subtitle: "Professional internships in AI systems, manufacturing inspection, and environmental analytics.",
+    items: [
+      {
+        id: "zenkensa",
+        role: "IT & Data Analysis Intern (AI / Manufacturing Systems)",
+        company: "ZenKensa – Manufacturing Inspection System",
+        duration: "Dec 2025 – Present",
+        points: [
+          "Contributed to the development of an AI-assisted metal surface inspection system.",
+          "Implemented computer vision pipelines and lightweight ML models.",
+          "Supported workflow automation and decision-support system design."
+        ]
+      },
+      {
+        id: "anant-raj",
+        role: "IT & Data Analysis Intern",
+        company: "Anant Raj Cloud Pvt. Ltd.",
+        duration: "May 2024 – June 2025",
+        points: [
+          "Worked on VERITAS, an AI-based indoor air quality monitoring and risk intelligence system.",
+          "Designed data processing pipelines using Pandas and NumPy for multi-parameter sensor data.",
+          "Analysed sensor data and implemented risk scoring algorithms, visualization, and reporting workflows.",
+          "Contributed to backend services and dashboards for environmental health decision support."
+        ]
+      }
+    ]
+  },
   skills: [
     {
       id: "ai-ml",

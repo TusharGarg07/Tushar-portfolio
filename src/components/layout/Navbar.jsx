@@ -127,18 +127,18 @@ export default function Navbar({ activeSection = 'home', setActiveSection = () =
 
             <button
               onClick={toggleLanguage}
-              className="flex items-center gap-2 rounded-lg border border-border bg-card px-3 py-1.5 text-sm transition-all hover:bg-accent/10"
+              className="flex min-w-[80px] items-center justify-center gap-2 rounded-lg border border-border bg-card px-3 py-1.5 text-sm transition-all hover:bg-accent/10 whitespace-nowrap"
             >
               <span className={`transition-colors ${
-                language === 'en' ? 'text-foreground font-medium' : 'text-muted'
+                language === 'en' ? 'text-foreground font-bold' : 'text-muted'
               }`}>
-                EN
+                {language === 'jp' ? 'EN' : 'EN'}
               </span>
               <span className="text-muted">|</span>
               <span className={`transition-colors ${
-                language === 'jp' ? 'text-foreground font-medium' : 'text-muted'
+                language === 'jp' ? 'text-foreground font-bold' : 'text-muted'
               }`}>
-                日本語
+                {language === 'jp' ? '日本語' : 'JP'}
               </span>
             </button>
             <Button
