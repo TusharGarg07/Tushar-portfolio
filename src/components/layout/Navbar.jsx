@@ -19,6 +19,7 @@ export default function Navbar({ activeSection = 'home', setActiveSection = () =
   const [isScrolled, setIsScrolled] = useState(false)
   const [activeId, setActiveId] = useState('home')
   const { language, toggleLanguage } = useLanguage()
+  const isJP = language === 'jp'
   const [adaptiveContext, setAdaptiveContext] = useState(null)
 
   useEffect(() => {
@@ -93,9 +94,10 @@ export default function Navbar({ activeSection = 'home', setActiveSection = () =
                   <span className="relative">
                     {link.label}
                     <span
-                      className={`absolute -bottom-2 left-0 h-px w-full bg-accent transition-all duration-300 ease-out ${
+                      className={`absolute -bottom-2 left-0 h-px w-full transition-all duration-300 ease-out ${
                         isActive ? 'opacity-100' : 'opacity-0'
                       }`}
+                      style={{ backgroundColor: isJP ? '#e85d3a' : 'rgb(34 211 238)' }}
                     />
                   </span>
                 </a>
@@ -109,7 +111,10 @@ export default function Navbar({ activeSection = 'home', setActiveSection = () =
                 href="https://www.linkedin.com/in/tushargarg25"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted hover:text-accent transition-all duration-300 hover:scale-115"
+                className="text-muted transition-all duration-300 hover:scale-115"
+                style={{ color: undefined }} // Let hover state handle it if not JP
+                onMouseEnter={(e) => e.currentTarget.style.color = isJP ? '#e85d3a' : 'rgb(34 211 238)'}
+                onMouseLeave={(e) => e.currentTarget.style.color = ''}
                 aria-label="LinkedIn"
               >
                 <FaLinkedin className="h-5 w-5" />
@@ -118,7 +123,9 @@ export default function Navbar({ activeSection = 'home', setActiveSection = () =
                 href="https://github.com/TusharGarg07"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted hover:text-accent transition-all duration-300 hover:scale-115"
+                className="text-muted transition-all duration-300 hover:scale-115"
+                onMouseEnter={(e) => e.currentTarget.style.color = isJP ? '#e85d3a' : 'rgb(34 211 238)'}
+                onMouseLeave={(e) => e.currentTarget.style.color = ''}
                 aria-label="GitHub"
               >
                 <FaGithub className="h-5 w-5" />
@@ -150,6 +157,7 @@ export default function Navbar({ activeSection = 'home', setActiveSection = () =
                 setActiveSection('contact')
               }}
               className="hidden sm:inline-flex"
+              style={{ borderColor: isJP ? '#e85d3a40' : undefined }}
             >
               Contact
             </Button>

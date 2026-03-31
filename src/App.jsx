@@ -8,9 +8,42 @@ import Certifications from './components/sections/Certifications.jsx'
 import Languages from './components/sections/Languages.jsx'
 import Contact from './components/sections/Contact.jsx'
 import Footer from './components/layout/Footer.jsx'
-import { LanguageProvider } from "./contexts/LanguageContext.jsx"
+import { LanguageProvider, useLanguage } from "./contexts/LanguageContext.jsx"
 import { useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
+
+function GlobalBackground() {
+  const { language } = useLanguage()
+  const isJP = language === 'jp'
+
+  return (
+    <div 
+      className="fixed inset-0 -z-50 transition-[background] duration-700 ease-in-out"
+      style={{
+        backgroundImage: isJP ? "url('/japan-bg.png')" : 'none',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center top',
+        backgroundRepeat: 'no-repeat',
+        backgroundColor: '#0b1120',
+      }}
+    >
+      <AnimatePresence>
+        {isJP && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.6 }}
+            className="absolute inset-0"
+            style={{
+              background: 'linear-gradient(to right, rgba(5, 10, 20, 0.85) 0%, rgba(5, 10, 20, 0.6) 50%, rgba(5, 10, 20, 0.3) 100%)'
+            }}
+          />
+        )}
+      </AnimatePresence>
+    </div>
+  )
+}
 
 export default function App() {
   const mainRef = useRef(null)
@@ -523,7 +556,8 @@ export default function App() {
 
   return (
     <LanguageProvider>
-      <div className="min-h-screen bg-background text-foreground">
+      <GlobalBackground />
+      <div className="min-h-screen bg-transparent text-foreground relative z-0">
         <Navbar activeSection={activeSection} setActiveSection={setActiveSection} />
         <main className="pt-16">
           <AnimatePresence mode="wait">

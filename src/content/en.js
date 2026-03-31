@@ -61,10 +61,10 @@ export default {
     heading: "About Me",
     subtitle: "Professional introduction and background in AI and Data Analysis.",
     paragraphs: [
-      "I am a Biotechnology student transitioning into AI and Data Analysis, with a strong interest in building real-world intelligent systems.",
-      "I have worked on AI-assisted manufacturing inspection systems and indoor environmental risk intelligence platforms.",
-      "Using Python, machine learning, and full-stack development tools, I focus on designing systems that operate reliably in industrial and environmental environments.",
-      "My long-term goal is to contribute to industrial and environmental AI development in Japan."
+      "Engineer focused on end-to-end system development — from data pipelines and ML to backend, deployment, and optimization.",
+      "Built across finance (AI-powered ERP with fraud detection), manufacturing (computer vision inspection), environmental monitoring, and bioinformatics.",
+      "Comfortable with complex problems — debugging, experimenting, and iterating until things actually work in production.",
+      "Goal: build systems that are reliable, useful, and deliver real impact — not just functional demos."
     ],
     education: {
       title: "Education",

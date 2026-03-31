@@ -8,18 +8,19 @@ import SectionTitle from '../ui/SectionTitle.jsx'
 
 export default function Projects() {
   const { language } = useLanguage()
-  const content = language === 'jp' ? jp : en
+  const isJP = language === 'jp'
+  const content = isJP ? jp : en
   return (
     <section id="projects" className="section">
       <Container>
         <SectionTitle
-          title="Projects"
-          subtitle="Selected AI and data projects focused on real-world systems, applied analytics, and production-minded engineering."
+          title={isJP ? "プロジェクト" : "Projects"}
+          subtitle={isJP ? "実環境での動作、応用分析、および実用的なエンジニアリングに焦点を当てたAIおよびデータプロジェクトの選集。" : "Selected AI and data projects focused on real-world systems, applied analytics, and production-minded engineering."}
         />
 
         <div className="mt-8 grid gap-6 md:grid-cols-2">
           {content.projects.map((project) => (
-            <Card key={project.id}>
+            <Card key={project.id} className="transition-all duration-500 hover:border-accent/40">
               <div className="flex items-start justify-between gap-4">
                 <div className="min-w-0">
                   <h3 className="text-lg font-semibold leading-snug text-foreground">
@@ -27,7 +28,14 @@ export default function Projects() {
                   </h3>
                   {project.type ? (
                     <div className="mt-3">
-                      <span className="inline-flex items-center rounded-full border border-accent/30 bg-accent/10 px-2.5 py-1 text-xs font-medium text-accent">
+                      <span 
+                        className="inline-flex items-center rounded-full border px-2.5 py-1 text-xs font-medium transition-all duration-500"
+                        style={{ 
+                          borderColor: isJP ? 'rgba(232, 93, 58, 0.3)' : 'rgb(34 211 238 / 0.3)',
+                          backgroundColor: isJP ? 'rgba(232, 93, 58, 0.1)' : 'rgb(34 211 238 / 0.1)',
+                          color: isJP ? '#e85d3a' : 'rgb(34 211 238)'
+                        }}
+                      >
                         {project.type}
                       </span>
                     </div>
@@ -41,7 +49,12 @@ export default function Projects() {
 
               {project.impact ? (
                 <p className="mt-3 text-sm leading-relaxed text-foreground">
-                  <span className="text-accent">Impact:</span> {project.impact}
+                  <span 
+                    className="transition-colors duration-500"
+                    style={{ color: isJP ? '#e85d3a' : 'rgb(34 211 238)' }}
+                  >
+                    Impact:
+                  </span> {project.impact}
                 </p>
               ) : null}
 
@@ -49,7 +62,7 @@ export default function Projects() {
                 {(project.technologies || []).map((tech) => (
                   <span
                     key={tech}
-                    className="rounded-full border border-border bg-card px-2.5 py-1 text-xs text-muted"
+                    className="rounded-full border border-border bg-card px-2.5 py-1 text-xs text-muted transition-colors duration-500 hover:border-accent/40"
                   >
                     {tech}
                   </span>

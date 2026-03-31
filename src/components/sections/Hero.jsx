@@ -68,35 +68,16 @@ export default function Hero() {
     return (
       <section 
         id="hero" 
-        className="scroll-mt-24 transition-[background] duration-600 ease-in-out" 
+        className="scroll-mt-24" 
         ref={ref}
-        style={{
-          backgroundImage: "url('/japan-bg.png')",
-          backgroundSize: 'cover',
-          backgroundPosition: 'center top',
-          backgroundRepeat: 'no-repeat',
-        }}
       >
         <div className="relative min-h-screen overflow-hidden">
-          <AnimatePresence>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.6 }}
-              className="absolute inset-0 z-0"
-              style={{
-                background: 'linear-gradient(to right, rgba(5, 10, 20, 0.85) 0%, rgba(5, 10, 20, 0.6) 50%, rgba(5, 10, 20, 0.3) 100%)'
-              }}
-            />
-          </AnimatePresence>
-
           <div className="pointer-events-none absolute inset-0 z-0">
             <div className="absolute -left-40 -top-40 h-[520px] w-[520px] rounded-full bg-accent/10 blur-3xl" />
             <div className="absolute -bottom-40 -right-40 h-[520px] w-[520px] rounded-full bg-accent/10 blur-3xl" />
           </div>
 
-          <Container className="relative z-10 flex min-h-screen items-center py-24">
+          <Container className="relative z-10 flex min-h-screen flex-col justify-center py-20 lg:py-32">
             <div className="grid w-full items-center gap-12 lg:grid-cols-12">
               <div className="lg:col-span-7">
                 <div className="animate-fade-up">

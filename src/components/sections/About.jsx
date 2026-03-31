@@ -29,12 +29,25 @@ export default function About() {
 
           {/* Right side - Text content */}
           <div className="flex flex-col justify-center space-y-8">
-            <div className="space-y-4 text-sm leading-relaxed text-muted">
-              {content.about.paragraphs.map((paragraph, index) => (
-                <p key={index}>
-                  {paragraph}
-                </p>
-              ))}
+            <div className={`text-muted`}>
+              {language === 'en' ? (
+                <ul className="space-y-[12px]">
+                  {content.about.paragraphs.map((paragraph, index) => (
+                    <li key={index} className="flex gap-3 text-base leading-relaxed">
+                      <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent transition-colors duration-500" style={{ backgroundColor: isJP ? '#e85d3a' : 'rgb(34 211 238)' }} />
+                      <span>{paragraph}</span>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <div className="space-y-[16px] text-[16px] leading-[1.75]">
+                  {content.about.paragraphs.map((paragraph, index) => (
+                    <p key={index}>
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
+              )}
             </div>
 
             {/* Education Section */}

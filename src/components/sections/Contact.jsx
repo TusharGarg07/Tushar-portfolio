@@ -9,8 +9,9 @@ import Button from '../ui/Button.jsx'
 
 export default function Contact() {
   const { language } = useLanguage()
-  const content = language === 'jp' ? jp : en
-  const resumePath = language === 'jp' 
+  const isJP = language === 'jp'
+  const content = isJP ? jp : en
+  const resumePath = isJP 
     ? '/resume/履歴書_トゥシャール・ガルグ_JN.pdf'
     : '/resume/Resume_TusharGarg.pdf'
   const [resumeRecommended, setResumeRecommended] = useState(false)
@@ -35,7 +36,7 @@ export default function Contact() {
       <Container>
         <SectionTitle
           title={content.contact.heading}
-          subtitle="Get in touch for collaboration, opportunities, or technical discussions."
+          subtitle={isJP ? "コラボレーション、機会、または技術的な議論についてのご連絡をお待ちしております。" : "Get in touch for collaboration, opportunities, or technical discussions."}
         />
 
         <div className="mt-12 text-center">
@@ -46,7 +47,8 @@ export default function Contact() {
             
             <a
               href="mailto:tushargarg2425@gmail.com?subject=Portfolio%20Inquiry"
-              className="text-base font-medium text-accent hover:text-accent/80 transition-colors"
+              className="text-base font-medium transition-colors duration-500"
+              style={{ color: isJP ? '#e85d3a' : 'rgb(34 211 238)' }}
             >
               tushargarg2425@gmail.com
             </a>
@@ -78,15 +80,19 @@ export default function Contact() {
             <Button
               href={resumePath}
               download={
-                language === 'jp'
+                isJP
                   ? '履歴書_トゥシャール・ガルグ_JN.pdf'
                   : 'Resume_TusharGarg.pdf'
               }
-              className={`px-6 ${
+              className={`px-6 transition-all duration-500 ${
                 resumeRecommended
-                  ? 'animate-pulse shadow-[0_0_20px_rgba(34,211,238,0.4)]'
+                  ? `animate-pulse shadow-[0_0_20px_${isJP ? 'rgba(232,93,58,0.4)' : 'rgba(34,211,238,0.4)'}]`
                   : ''
               }`}
+              style={{
+                backgroundColor: isJP ? '#e85d3a' : undefined,
+                color: isJP ? '#0b1120' : undefined,
+              }}
             >
               Download Resume
             </Button>
