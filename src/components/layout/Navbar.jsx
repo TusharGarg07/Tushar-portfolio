@@ -5,14 +5,14 @@ import { useEffect, useState } from 'react'
 import { FaLinkedin, FaGithub } from 'react-icons/fa'
 
 const navLinks = [
-  { label: 'Home', href: '#hero' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'Experience', href: '#experience' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'About', href: '#about' },
-  { label: 'Certifications', href: '#certifications' },
-  { label: 'Languages', href: '#languages' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Home', labelJp: 'ホーム', href: '#hero' },
+  { label: 'Projects', labelJp: 'プロジェクト', href: '#projects' },
+  { label: 'Experience', labelJp: '職歴', href: '#experience' },
+  { label: 'Skills', labelJp: 'スキル', href: '#skills' },
+  { label: 'About', labelJp: '自己紹介', href: '#about' },
+  { label: 'Certifications', labelJp: '資格', href: '#certifications' },
+  { label: 'Languages', labelJp: '言語', href: '#languages' },
+  { label: 'Contact', labelJp: 'お問い合わせ', href: '#contact' },
 ]
 
 export default function Navbar({ activeSection = 'home', setActiveSection = () => {} }) {
@@ -46,11 +46,14 @@ export default function Navbar({ activeSection = 'home', setActiveSection = () =
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-200 ${
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'border-b border-border bg-background/70 backdrop-blur'
+          ? isJP 
+            ? 'border-b border-white/10 bg-[#050a14]/92 backdrop-blur-[16px]' 
+            : 'border-b border-border bg-background/70 backdrop-blur'
           : 'border-b border-transparent bg-transparent'
       }`}
+      style={isScrolled && isJP ? { borderBottom: '1px solid rgba(255,255,255,0.08)' } : {}}
     >
       <Container>
         <div className="flex h-16 items-center justify-between gap-4">
@@ -66,7 +69,7 @@ export default function Navbar({ activeSection = 'home', setActiveSection = () =
             <span className="text-sm font-semibold tracking-wide text-foreground">
               Portfolio
             </span>
-            <span className="text-xs text-muted">AI/Data Engineer</span>
+            <span className="text-xs text-muted">{isJP ? 'AI/データエンジニア' : 'AI/Data Engineer'}</span>
           </a>
 
           <nav className="hidden items-center gap-5 md:flex">
@@ -87,12 +90,12 @@ export default function Navbar({ activeSection = 'home', setActiveSection = () =
                   }}
                   className={`text-sm transition-colors ${
                     isActive
-                      ? 'text-foreground'
+                      ? 'text-foreground font-medium'
                       : 'text-muted hover:text-foreground'
                   }`}
                 >
                   <span className="relative">
-                    {link.label}
+                    {isJP ? link.labelJp : link.label}
                     <span
                       className={`absolute -bottom-2 left-0 h-px w-full transition-all duration-300 ease-out ${
                         isActive ? 'opacity-100' : 'opacity-0'
@@ -157,18 +160,25 @@ export default function Navbar({ activeSection = 'home', setActiveSection = () =
                 setActiveSection('contact')
               }}
               className="hidden sm:inline-flex"
-              style={{ borderColor: isJP ? '#e85d3a40' : undefined }}
+              style={{ 
+                borderColor: isJP ? '#e85d3a40' : undefined,
+                backgroundColor: isJP ? 'rgba(5, 10, 20, 0.5)' : undefined
+              }}
             >
-              Contact
+              {isJP ? 'お問い合わせ' : 'Contact'}
             </Button>
             
-            {/* Navbar Adaptive Focus Label */}
+            {/* Navbar Adaptive Focus Label - properly translated or hidden */}
             {adaptiveContext && (
-              <div className="hidden lg:block text-xs text-muted">
-                {language === 'jp' ? (
-                  <span>● 現在のフォーカス：{adaptiveContext}</span>
+              <div className="hidden lg:block text-[10px] uppercase tracking-widest text-muted/60">
+                {isJP ? (
+                  <span>● フォーカス：{
+                    adaptiveContext === 'technical_focus' ? '技術評価' :
+                    adaptiveContext === 'career_focus' ? 'キャリア' :
+                    adaptiveContext === 'japan_focus' ? '日本' : '全般'
+                  }</span>
                 ) : (
-                  <span>● Active Focus: {adaptiveContext}</span>
+                  <span>● Focus: {adaptiveContext.replace('_', ' ')}</span>
                 )}
               </div>
             )}
@@ -195,7 +205,7 @@ export default function Navbar({ activeSection = 'home', setActiveSection = () =
                   isActive ? 'text-foreground' : 'text-muted hover:text-foreground'
                 }`}
               >
-                {link.label}
+                {isJP ? link.labelJp : link.label}
               </a>
             )
           })}

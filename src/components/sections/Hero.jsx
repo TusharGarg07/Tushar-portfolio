@@ -68,21 +68,27 @@ export default function Hero() {
     return (
       <section 
         id="hero" 
-        className="scroll-mt-24" 
+        className="relative scroll-mt-24 min-h-screen flex items-center" 
         ref={ref}
       >
-        <div className="relative min-h-screen overflow-hidden">
-          <div className="pointer-events-none absolute inset-0 z-0">
+        {/* JP Mode Overlay */}
+        <div 
+          className="absolute inset-0 z-0 pointer-events-none"
+          style={{ background: 'rgba(5, 10, 20, 0.82)' }}
+        />
+
+        <div className="relative z-10 w-full">
+          <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
             <div className="absolute -left-40 -top-40 h-[520px] w-[520px] rounded-full bg-accent/10 blur-3xl" />
             <div className="absolute -bottom-40 -right-40 h-[520px] w-[520px] rounded-full bg-accent/10 blur-3xl" />
           </div>
 
-          <Container className="relative z-10 flex min-h-screen flex-col justify-center py-20 lg:py-32">
+          <Container className="relative z-10 py-20 lg:py-32">
             <div className="grid w-full items-center gap-12 lg:grid-cols-12">
               <div className="lg:col-span-7">
                 <div className="animate-fade-up">
                   <div className="animate-fade-up-delayed translate-y-0 animate-fade-up duration-700 ease-out">
-                    <p className="text-sm font-medium tracking-wide text-muted">
+                    <p className="text-sm font-medium tracking-wide text-white/50">
                       {content.hero.greeting}
                     </p>
 
@@ -91,7 +97,7 @@ export default function Hero() {
                         {nameParts[0]}
                       </span>
                       {nameParts[1] && (
-                        <span className="text-foreground md:whitespace-nowrap"> {nameParts[1]}</span>
+                        <span className="text-white/92 md:whitespace-nowrap"> {nameParts[1]}</span>
                       )}
                     </h2>
                     
@@ -124,11 +130,11 @@ export default function Hero() {
                     </AnimatePresence>
                   </div>
 
-                  <h1 className="mt-2 text-4xl font-bold tracking-tight text-foreground sm:text-6xl">
+                  <h1 className="mt-2 text-4xl font-bold tracking-tight text-white/92 sm:text-6xl">
                     {content.hero.headline}
                   </h1>
 
-                  <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
+                  <p className="mt-4 max-w-2xl text-sm leading-relaxed text-white/75 sm:text-base">
                     {content.hero.subline}
                   </p>
 
@@ -140,7 +146,7 @@ export default function Hero() {
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: 0.5 + i * 0.1 }}
-                        className="inline-flex items-center rounded-full border bg-accent/5 px-3 py-1 text-xs font-medium transition-colors duration-500"
+                        className="inline-flex items-center rounded-full border bg-white/5 px-3 py-1 text-xs font-medium transition-colors duration-500"
                         style={{ 
                           borderColor: '#e85d3a40',
                           color: '#e85d3a'
@@ -153,7 +159,7 @@ export default function Hero() {
 
                   {/* Hero Adaptive Micro Context */}
                   {adaptiveContext && (
-                    <p className="mt-4 max-w-2xl text-xs leading-relaxed text-muted/70">
+                    <p className="mt-4 max-w-2xl text-[10px] uppercase tracking-widest text-white/50">
                       {adaptiveContext === 'technical_focus' && '技術評価に最適化されています'
                       || adaptiveContext === 'career_focus' && '実践的な業界貢献に焦点を当てています'
                       || adaptiveContext === 'japan_focus' && '日本ベースの連携に準備済み'
@@ -161,7 +167,7 @@ export default function Hero() {
                     </p>
                   )}
 
-                  <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted">
+                  <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/75">
                     {content.hero.description}
                   </p>
 
@@ -174,36 +180,18 @@ export default function Hero() {
                       href='/resume/履歴書_トゥシャール・ガルグ_JN.pdf' 
                       download='履歴書_トゥシャール・ガルグ_JN.pdf'
                       className="transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(34,211,238,0.25)]"
+                      style={{ backgroundColor: 'rgba(5, 10, 20, 0.5)' }}
                     >
                       {content.hero.buttons.downloadResume}
                     </Button>
-                    <Button variant="outline" href="#contact" className="transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(34,211,238,0.25)]">
+                    <Button variant="outline" href="#contact" className="transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(34,211,238,0.25)]" style={{ backgroundColor: 'rgba(5, 10, 20, 0.5)' }}>
                       {content.hero.buttons.contactMe}
                     </Button>
                   </div>
 
-                  <p className="mt-6 text-sm text-muted">
+                  <p className="mt-6 text-sm text-white/50">
                     {content.hero.availability}
                   </p>
-                </div>
-
-                <div className="animate-fade-up-delayed mt-12 grid max-w-2xl gap-4 sm:grid-cols-2">
-                  <Card>
-                    <p className="text-xs font-medium tracking-wide text-muted">
-                      {content.hero.cards.focus.title}
-                    </p>
-                    <p className="mt-3 text-sm leading-relaxed text-muted">
-                      {content.hero.cards.focus.text}
-                    </p>
-                  </Card>
-                  <Card>
-                    <p className="text-xs font-medium tracking-wide text-muted">
-                      {content.hero.cards.domains.title}
-                    </p>
-                    <p className="mt-3 text-sm leading-relaxed text-muted">
-                      {content.hero.cards.domains.text}
-                    </p>
-                  </Card>
                 </div>
               </div>
 
@@ -214,7 +202,7 @@ export default function Hero() {
                     style={{ backgroundImage: 'linear-gradient(135deg, rgba(34,211,238,0.25), rgba(11,17,32,0), rgba(34,211,238,0.10))' }}
                   />
 
-                  <div className="relative animate-float-slow rounded-[28px] border border-border/50 bg-card/60 p-8 shadow-glass backdrop-blur-xl">
+                  <div className="relative animate-float-slow rounded-[28px] border border-white/10 bg-[#080c1c]/90 p-8 shadow-2xl backdrop-blur-xl">
                     <div className="flex items-center justify-between">
                       <p className="text-xs font-bold uppercase tracking-widest text-accent/80">
                         システム概要
@@ -252,15 +240,15 @@ export default function Hero() {
                     </div>
 
                     <div className="mt-10 rounded-2xl border border-accent/20 bg-accent/5 p-5 transition-all duration-300 hover:bg-accent/10">
-                      <p className="text-xs font-semibold text-muted uppercase tracking-wider">{content.hero.systemStatus.title}</p>
-                      <p className="mt-3 text-lg font-bold text-foreground">
+                      <p className="text-xs font-semibold text-white/50 uppercase tracking-wider">{content.hero.systemStatus.title}</p>
+                      <p className="mt-3 text-lg font-bold text-white/92">
                         {content.hero.systemStatus.deployed}
                       </p>
                       <div className="mt-4 flex items-center justify-between">
-                        <p className="text-xs font-medium text-muted">
+                        <p className="text-xs font-medium text-white/50">
                           {content.hero.systemStatus.activeProjects}
                         </p>
-                        <span className="h-px flex-1 mx-4 bg-border" />
+                        <span className="h-px flex-1 mx-4 bg-white/10" />
                         <p 
                           className="text-xs font-bold transition-colors duration-500"
                           style={{ color: '#e85d3a' }}

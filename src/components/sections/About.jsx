@@ -11,8 +11,16 @@ export default function About() {
   const isJP = language === 'jp'
   const content = isJP ? jp : en
   return (
-    <section id="about" className="section">
-      <Container>
+    <section id="about" className="relative section overflow-hidden">
+      {/* JP Mode Overlay - Odd Section */}
+      {isJP && (
+        <div 
+          className="absolute inset-0 z-0 pointer-events-none"
+          style={{ background: 'rgba(5, 10, 20, 0.82)' }}
+        />
+      )}
+
+      <Container className="relative z-10">
         <SectionTitle
           title={content.about.heading}
           subtitle={content.about.subtitle}
@@ -30,7 +38,7 @@ export default function About() {
 
           {/* Right side - Text content */}
           <div className="flex flex-col justify-center space-y-8">
-            <div className={`text-muted`}>
+            <div className={`${isJP ? 'text-white/75' : 'text-muted'}`}>
               {language === 'en' ? (
                 <ul className="space-y-[12px]">
                   {content.about.paragraphs.map((paragraph, index) => (
@@ -53,20 +61,20 @@ export default function About() {
 
             {/* Education Section */}
             <div className="space-y-4">
-              <h3 className="text-lg font-semibold text-foreground flex items-center gap-2">
+              <h3 className={`text-lg font-semibold flex items-center gap-2 ${isJP ? 'text-white/92' : 'text-foreground'}`}>
                 <span className="h-px w-8 transition-colors duration-500" style={{ backgroundColor: isJP ? '#e85d3a' : 'rgb(34 211 238)' }} />
                 {content.about.education.title}
               </h3>
               <div className="grid gap-4">
                 {content.about.education.items.map((item, index) => (
-                  <div key={index} className="rounded-xl border border-border bg-card/50 p-4 backdrop-blur-sm transition-all hover:border-accent/40">
+                  <div key={index} className={`rounded-xl border p-4 backdrop-blur-sm transition-all hover:border-accent/40 ${isJP ? 'bg-[#080c1c]/90 border-white/15' : 'bg-card/50 border-border'}`}>
                     <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
                       <div>
-                        <p className="font-medium text-foreground">{item.degree}</p>
-                        <p className="text-sm text-muted">{item.institution}</p>
+                        <p className={`font-medium ${isJP ? 'text-white/92' : 'text-foreground'}`}>{item.degree}</p>
+                        <p className={`text-sm ${isJP ? 'text-white/75' : 'text-muted'}`}>{item.institution}</p>
                       </div>
                       <div className="text-right">
-                        {item.duration && <p className="text-xs text-muted">{item.duration}</p>}
+                        {item.duration && <p className="text-xs text-white/50">{item.duration}</p>}
                         <p className="text-xs font-medium transition-colors duration-500" style={{ color: isJP ? '#e85d3a' : 'rgb(34 211 238)' }}>{item.score}</p>
                       </div>
                     </div>

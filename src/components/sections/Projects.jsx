@@ -11,8 +11,16 @@ export default function Projects() {
   const isJP = language === 'jp'
   const content = isJP ? jp : en
   return (
-    <section id="projects" className="section">
-      <Container>
+    <section id="projects" className="relative section overflow-hidden">
+      {/* JP Mode Overlay - Even Section */}
+      {isJP && (
+        <div 
+          className="absolute inset-0 z-0 pointer-events-none"
+          style={{ background: 'rgba(8, 16, 35, 0.85)' }}
+        />
+      )}
+
+      <Container className="relative z-10">
         <SectionTitle
           title={isJP ? "プロジェクト" : "Projects"}
           subtitle={isJP ? "実環境での動作、応用分析、および実用的なエンジニアリングに焦点を当てたAIおよびデータプロジェクトの選集。" : "Selected AI and data projects focused on real-world systems, applied analytics, and production-minded engineering."}
@@ -23,7 +31,7 @@ export default function Projects() {
             <Card key={project.id} className="transition-all duration-500 hover:border-accent/40">
               <div className="flex items-start justify-between gap-4">
                 <div className="min-w-0">
-                  <h3 className="text-lg font-semibold leading-snug text-foreground">
+                  <h3 className={`text-lg font-semibold leading-snug ${isJP ? 'text-white/92' : 'text-foreground'}`}>
                     {project.title}
                   </h3>
                   {project.type ? (
@@ -43,12 +51,12 @@ export default function Projects() {
                 </div>
               </div>
 
-              <p className="mt-4 text-sm leading-relaxed text-muted">
+              <p className={`mt-4 text-sm leading-relaxed ${isJP ? 'text-white/75' : 'text-muted'}`}>
                 {project.description}
               </p>
 
               {project.impact ? (
-                <p className="mt-3 text-sm leading-relaxed text-foreground">
+                <p className={`mt-3 text-sm leading-relaxed ${isJP ? 'text-white/92' : 'text-foreground'}`}>
                   <span 
                     className="transition-colors duration-500"
                     style={{ color: isJP ? '#e85d3a' : 'rgb(34 211 238)' }}
@@ -62,7 +70,7 @@ export default function Projects() {
                 {(project.technologies || []).map((tech) => (
                   <span
                     key={tech}
-                    className="rounded-full border border-border bg-card px-2.5 py-1 text-xs text-muted transition-colors duration-500 hover:border-accent/40"
+                    className={`rounded-full border border-border bg-card px-2.5 py-1 text-xs transition-colors duration-500 hover:border-accent/40 ${isJP ? 'text-white/50' : 'text-muted'}`}
                   >
                     {tech}
                   </span>
@@ -70,7 +78,7 @@ export default function Projects() {
               </div>
 
               <div className="mt-6 flex flex-wrap items-center gap-3">
-                <Button variant="outline" href={project.githubUrl || '#'}>
+                <Button variant="outline" href={project.githubUrl || '#'} style={isJP ? { backgroundColor: 'rgba(5, 10, 20, 0.5)' } : {}}>
                   GitHub
                 </Button>
               </div>

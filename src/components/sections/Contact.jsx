@@ -32,8 +32,16 @@ export default function Contact() {
     console.log('Resume path:', resumePath)
   }
   return (
-    <section id="contact" className="section">
-      <Container>
+    <section id="contact" className="relative section overflow-hidden">
+      {/* JP Mode Overlay - Even Section */}
+      {isJP && (
+        <div 
+          className="absolute inset-0 z-0 pointer-events-none"
+          style={{ background: 'rgba(8, 16, 35, 0.85)' }}
+        />
+      )}
+
+      <Container className="relative z-10">
         <SectionTitle
           title={content.contact.heading}
           subtitle={isJP ? "コラボレーション、機会、または技術的な議論についてのご連絡をお待ちしております。" : "Get in touch for collaboration, opportunities, or technical discussions."}
@@ -41,7 +49,7 @@ export default function Contact() {
 
         <div className="mt-12 text-center">
           <div className="space-y-4">
-            <p className="text-base leading-relaxed text-muted">
+            <p className={`text-base leading-relaxed ${isJP ? 'text-white/75' : 'text-muted'}`}>
               {content.contact.message}
             </p>
             
@@ -58,7 +66,7 @@ export default function Contact() {
                 href="https://www.linkedin.com/in/tushargarg25"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm text-muted hover:text-foreground transition-colors"
+                className={`text-sm transition-colors ${isJP ? 'text-white/50 hover:text-white/92' : 'text-muted hover:text-foreground'}`}
               >
                 LinkedIn
               </a>
@@ -66,7 +74,7 @@ export default function Contact() {
                 href="https://github.com/TusharGarg07"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm text-muted hover:text-foreground transition-colors"
+                className={`text-sm transition-colors ${isJP ? 'text-white/50 hover:text-white/92' : 'text-muted hover:text-foreground'}`}
               >
                 GitHub
               </a>
@@ -74,7 +82,7 @@ export default function Contact() {
           </div>
 
           <div className="mt-8">
-            <p className="text-sm text-muted mb-4">
+            <p className={`text-sm mb-4 ${isJP ? 'text-white/50' : 'text-muted'}`}>
               {content.contact.closing}
             </p>
             <Button
@@ -94,7 +102,7 @@ export default function Contact() {
                 color: isJP ? '#0b1120' : undefined,
               }}
             >
-              Download Resume
+              {isJP ? '履歴書をダウンロード' : 'Download Resume'}
             </Button>
           </div>
         </div>

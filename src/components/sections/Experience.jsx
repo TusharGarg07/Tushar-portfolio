@@ -10,8 +10,16 @@ export default function Experience() {
   const isJP = language === 'jp'
   const content = isJP ? jp : en
   return (
-    <section id="experience" className="section">
-      <Container>
+    <section id="experience" className="relative section overflow-hidden">
+      {/* JP Mode Overlay - Odd Section */}
+      {isJP && (
+        <div 
+          className="absolute inset-0 z-0 pointer-events-none"
+          style={{ background: 'rgba(5, 10, 20, 0.82)' }}
+        />
+      )}
+
+      <Container className="relative z-10">
         <SectionTitle
           title={content.experience.heading}
           subtitle={content.experience.subtitle}
@@ -30,8 +38,8 @@ export default function Experience() {
                 {/* Duration - Left side */}
                 <div className="flex items-center md:justify-end">
                   <span 
-                    className="text-sm font-medium md:text-right transition-colors duration-500"
-                    style={{ color: isJP ? '#e85d3a' : 'rgb(34 211 238)' }}
+                    className={`text-sm font-medium md:text-right transition-colors duration-500 ${isJP ? 'text-white/92' : 'text-accent'}`}
+                    style={{ color: isJP ? '#e85d3a' : undefined }}
                   >
                     {item.duration}
                   </span>
@@ -46,23 +54,23 @@ export default function Experience() {
                   />
 
                   <Card 
-                    className="!bg-white/[0.04] !border-white/[0.08] border-l-[3px] shadow-none hover:!bg-white/[0.06] transition-all duration-500"
+                    className={`!border-l-[3px] shadow-none transition-all duration-500 ${isJP ? '!bg-[#080c1c]/90 !border-white/15' : '!bg-white/[0.04] !border-white/[0.08] hover:!bg-white/[0.06]'}`}
                     style={{ borderLeftColor: isJP ? '#e85d3a' : 'rgb(34 211 238)' }}
                   >
                     <div className="flex flex-col gap-1">
-                      <h3 className="text-base font-semibold text-foreground">
+                      <h3 className={`text-base font-semibold ${isJP ? 'text-white/92' : 'text-foreground'}`}>
                         {item.role}
                       </h3>
-                      <p className="text-sm text-muted">{item.company}</p>
+                      <p className={`text-sm ${isJP ? 'text-white/75' : 'text-muted'}`}>{item.company}</p>
                     </div>
 
                     <ul className="mt-4 space-y-2">
                       {(item.points || []).map((bullet, index) => (
                         <li
                           key={index}
-                          className="flex gap-3 text-sm leading-relaxed text-muted"
+                          className={`flex gap-3 text-sm leading-relaxed ${isJP ? 'text-white/75' : 'text-muted'}`}
                         >
-                          <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent/60" />
+                          <span className="mt-2 h-1 w-1 shrink-0 rounded-full transition-colors duration-500" style={{ backgroundColor: isJP ? '#e85d3a' : 'rgb(34 211 238)' }} />
                           <span>{bullet}</span>
                         </li>
                       ))}
