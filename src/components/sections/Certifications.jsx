@@ -42,6 +42,12 @@ export default function Certifications() {
               <h3 className={`text-base font-semibold ${isJP ? 'text-white/92' : 'text-foreground'}`}>
                 {cert.title}
               </h3>
+              <p className={`text-sm mt-1 ${isJP ? 'text-white/65' : 'text-muted'}`}>
+                {cert.issuer}
+              </p>
+              <p className={`text-xs mt-0.5 ${isJP ? 'text-white/50' : 'text-muted/70'}`}>
+                {cert.year}
+              </p>
             </Card>
           ))}
         </div>

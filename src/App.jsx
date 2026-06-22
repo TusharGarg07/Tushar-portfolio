@@ -1,5 +1,6 @@
 import Navbar from './components/layout/Navbar.jsx'
 import Hero from './components/sections/Hero.jsx'
+import WhatIBuild from './components/sections/WhatIBuild.jsx'
 import Projects from './components/sections/Projects.jsx'
 import Experience from './components/sections/Experience.jsx'
 import Skills from './components/sections/Skills.jsx'
@@ -449,6 +450,7 @@ export default function App() {
 
       const titles = {
         home: 'Tushar Garg | Portfolio',
+        'what-i-build': 'What I Build | Tushar Garg',
         projects: 'Projects | Tushar Garg',
         experience: 'Experience | Tushar Garg',
         skills: 'Skills | Tushar Garg',
@@ -517,6 +519,7 @@ export default function App() {
 
     const sections = [
       'home',
+      'what-i-build',
       'projects',
       'experience',
       'skills',
@@ -574,7 +577,13 @@ export default function App() {
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.35, ease: 'easeInOut' }}
             >
-              {activeSection === 'home' && <Hero />}
+              {activeSection === 'home' && (
+                <>
+                  <Hero />
+                  <WhatIBuild />
+                </>
+              )}
+              {activeSection === 'what-i-build' && <WhatIBuild />}
               {activeSection === 'projects' && <Projects />}
               {activeSection === 'experience' && <Experience />}
               {activeSection === 'skills' && <Skills />}

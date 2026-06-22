@@ -22,18 +22,13 @@ export default function Projects() {
 
       <Container className="relative z-10">
         <SectionTitle
-          title={isJP ? "プロジェクト" : "Projects"}
-          subtitle={isJP ? "実環境での動作、応用分析、および実用的なエンジニアリングに焦点を当てたAIおよびデータプロジェクトの選集。" : "Selected AI and data projects focused on real-world systems, applied analytics, and production-minded engineering."}
+          title={isJP ? "製品プロジェクト & ライブデプロイ" : "Production Projects & Live Deployments"}
+          subtitle={isJP ? "製造、環境分析、バイオインフォマティクスの分野で構築・デプロイされたプロダクション指向のソフトウェアシステムの選集。" : "A collection of production-oriented software systems built and deployed across manufacturing, environmental analytics, and bioinformatics."}
         />
 
         <div className="mt-8 grid gap-6 md:grid-cols-2">
           {content.projects.map((project) => {
-            const projectLinks = {
-              'ZenKensa': 'https://zenkensa-ai.onrender.com',
-              'FinKizuna ERP': 'https://fin-kizuna-erp-i5o9.vercel.app/',
-              'VERITAS': 'https://veritas-ai-system.onrender.com/'
-            }
-            const liveUrl = projectLinks[project.title]
+            const liveUrl = project.liveUrl
             const hasLiveDemo = !!liveUrl
             
             return (
@@ -89,22 +84,22 @@ export default function Projects() {
                         project.title
                       )}
                     </h3>
-                  {project.type ? (
-                    <div className="mt-3">
-                      <span 
-                        className="inline-flex items-center rounded-full border px-2.5 py-1 text-xs font-medium transition-all duration-500"
-                        style={{ 
-                          borderColor: isJP ? 'rgba(232, 93, 58, 0.3)' : 'rgb(34 211 238 / 0.3)',
-                          backgroundColor: isJP ? 'rgba(232, 93, 58, 0.1)' : 'rgb(34 211 238 / 0.1)',
-                          color: isJP ? '#e85d3a' : 'rgb(34 211 238)'
-                        }}
-                      >
-                        {project.type}
-                      </span>
-                    </div>
-                  ) : null}
+                    {hasLiveDemo ? (
+                      <div className="mt-3">
+                        <span 
+                          className="inline-flex items-center rounded-full border px-2.5 py-1 text-xs font-medium transition-all duration-500"
+                          style={{ 
+                            borderColor: isJP ? 'rgba(232, 93, 58, 0.3)' : 'rgb(45 212 191 / 0.3)',
+                            backgroundColor: isJP ? 'rgba(232, 93, 58, 0.1)' : 'rgb(45 212 191 / 0.1)',
+                            color: isJP ? '#e85d3a' : 'rgb(45 212 191)'
+                          }}
+                        >
+                          ✓ {isJP ? "ライブデモ" : "Live Demo Available"}
+                        </span>
+                      </div>
+                    ) : null}
+                  </div>
                 </div>
-              </div>
 
               <p className={`mt-4 text-sm leading-relaxed ${isJP ? 'text-white/75' : 'text-muted'}`}>
                 {project.description}

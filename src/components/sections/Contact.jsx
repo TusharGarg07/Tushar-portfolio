@@ -12,8 +12,8 @@ export default function Contact() {
   const isJP = language === 'jp'
   const content = isJP ? jp : en
   const resumePath = isJP 
-    ? '/resume/履歴書_トゥシャール・ガルグ_JN.pdf'
-    : '/resume/Resume_TusharGarg.pdf'
+    ? '/resume/履歴書_ガルグ・トゥシャール7.pdf'
+    : '/resume/TusharGarg_Resume.pdf'
   const [resumeRecommended, setResumeRecommended] = useState(false)
 
   useEffect(() => {
@@ -91,8 +91,8 @@ export default function Contact() {
               href={resumePath}
               download={
                 isJP
-                  ? '履歴書_トゥシャール・ガルグ_JN.pdf'
-                  : 'Resume_TusharGarg.pdf'
+                  ? '履歴書_ガルグ・トゥシャール7.pdf'
+                  : 'TusharGarg_Resume.pdf'
               }
               className={`px-6 transition-all duration-500 ${
                 resumeRecommended

@@ -73,10 +73,10 @@ export default function Navbar({ activeSection = 'home', setActiveSection = () =
             }}
           >
             <span className="text-sm font-semibold tracking-wide text-foreground">
-              Portfolio
-            </span>
-            {!isJP && <span className="text-xs text-muted">AI/Data Engineer</span>}
-            {isJP && <span className="text-[10px] text-muted whitespace-nowrap">AI/データエンジニア</span>}
+                    Portfolio
+                  </span>
+                  {!isJP && <span className="text-xs text-muted">Software Engineer</span>}
+                  {isJP && <span className="text-[10px] text-muted whitespace-nowrap">ソフトウェアエンジニア</span>}
           </a>
 
           <nav className="hidden items-center gap-2 md:flex lg:gap-3">

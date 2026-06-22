@@ -22,7 +22,7 @@ export default function Skills() {
       <Container className="relative z-10">
         <SectionTitle
           title={isJP ? "スキル" : "Skills"}
-          subtitle={isJP ? "AI、データ分析、フルスタック開発、バイオインフォマティクスにおける技術的専門知識。" : "Technical expertise across AI, data analysis, full stack development, and bioinformatics."}
+          subtitle={content.skillsSubtitle}
         />
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

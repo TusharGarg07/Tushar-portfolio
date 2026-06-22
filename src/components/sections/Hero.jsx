@@ -114,7 +114,13 @@ export default function Hero() {
                     </div>
                   </div>
 
-                  <div className="mt-6 h-8 overflow-hidden">
+                  {/* Primary Identity: Software Engineer (Japanese) */}
+                  <h1 className="mt-6 text-4xl font-bold tracking-tight text-white/92 sm:text-6xl">
+                    {content.hero.headline}
+                  </h1>
+
+                  {/* Rotating Roles (Supporting Info) */}
+                  <div className="mt-4 h-8 overflow-hidden">
                     <AnimatePresence mode="wait">
                       <motion.p
                         key={roleIndex}
@@ -130,10 +136,7 @@ export default function Hero() {
                     </AnimatePresence>
                   </div>
 
-                  <h1 className="mt-2 text-4xl font-bold tracking-tight text-white/92 sm:text-6xl">
-                    {content.hero.headline}
-                  </h1>
-
+                  {/* Tagline */}
                   <p className="mt-4 max-w-2xl text-sm leading-relaxed text-white/75 sm:text-base">
                     {content.hero.subline}
                   </p>
@@ -177,8 +180,8 @@ export default function Hero() {
                     </Button>
                     <Button 
                       variant="outline" 
-                      href='/resume/履歴書_トゥシャール・ガルグ_JN.pdf' 
-                      download='履歴書_トゥシャール・ガルグ_JN.pdf'
+                      href='/resume/履歴書_ガルグ・トゥシャール7.pdf' 
+                      download='履歴書_ガルグ・トゥシャール7.pdf'
                       className="transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(34,211,238,0.25)]"
                       style={{ backgroundColor: 'rgba(5, 10, 20, 0.5)' }}
                     >
@@ -192,6 +195,18 @@ export default function Hero() {
                   <p className="mt-6 text-sm text-white/50">
                     {content.hero.availability}
                   </p>
+                  {/* Technologies Row */}
+                  <div className="mt-6 flex flex-wrap gap-2">
+                    {content.hero.technologies?.map((tech, idx) => (
+                      <span
+                        key={idx}
+                        className="px-3 py-1 text-xs font-medium text-white/75 border border-white/10 rounded-full"
+                        style={{ borderColor: '#e85d3a40' }}
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
 
@@ -308,11 +323,6 @@ export default function Hero() {
                 transition={{ duration: 0.6 }}
                 className="space-y-6"
               >
-                {/* Small label above photo */}
-                <p className="text-xs font-bold tracking-[0.2em] text-accent uppercase mb-4">
-                  {content.hero.label}
-                </p>
-
                 {/* Photo with floating animation */}
                 <motion.div
                   animate={{ y: [-8, 8, -8] }}
@@ -330,15 +340,20 @@ export default function Hero() {
                   </div>
                 </motion.div>
 
-                <div className="space-y-2">
+                <div className="space-y-3">
                   <p className="text-sm font-medium text-muted">
                     {content.hero.greeting}
                   </p>
                   <h2 className="text-5xl font-extrabold tracking-tight text-foreground lg:text-7xl">
                     {content.hero.name}
                   </h2>
+                  {/* Primary Identity: Software Engineer */}
+                  <h3 className="text-3xl font-bold text-foreground lg:text-4xl">
+                    {content.hero.headline}
+                  </h3>
                 </div>
 
+                {/* Rotating Roles (Supporting Info) */}
                 <div className="h-8 overflow-hidden">
                   <AnimatePresence mode="wait">
                     <motion.p
@@ -347,18 +362,23 @@ export default function Hero() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -10 }}
                       transition={{ duration: 0.5 }}
-                      className="text-xl font-bold text-accent lg:text-2xl"
+                      className="text-lg font-semibold text-accent lg:text-xl"
                     >
                       {content.hero.roles[roleIndex]}
                     </motion.p>
                   </AnimatePresence>
                 </div>
 
+                {/* Tagline */}
+                <p className="text-base text-muted max-w-xl">
+                  {content.hero.subline}
+                </p>
+
                 <div className="flex flex-wrap items-center gap-4 pt-4">
                   <Button href="#projects" className="px-8 shadow-accent-glow">
                     {content.hero.buttons.viewProjects}
                   </Button>
-                  <Button variant="outline" href="/resume/Resume_TusharGarg.pdf" download="Resume_TusharGarg.pdf">
+                  <Button variant="outline" href="/resume/TusharGarg_Resume.pdf" download="TusharGarg_Resume.pdf">
                     {content.hero.buttons.downloadResume}
                   </Button>
                   
@@ -378,6 +398,17 @@ export default function Hero() {
                       </a>
                     ))}
                   </div>
+                </div>
+                {/* Technologies Row */}
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {content.hero.technologies?.map((tech, idx) => (
+                    <span
+                      key={idx}
+                      className="px-3 py-1 text-xs font-medium text-muted border border-border rounded-full"
+                    >
+                      {tech}
+                    </span>
+                  ))}
                 </div>
               </motion.div>
             </div>
@@ -446,19 +477,17 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="mt-20 lg:mt-32 w-full border-t border-border pt-12"
           >
-            <div className="grid grid-cols-2 gap-8 md:grid-cols-4 md:gap-4">
+            <div className="flex flex-wrap justify-center gap-4">
               {content.hero.stats.map((stat, i) => (
-                <div key={i} className="relative flex flex-col items-center justify-center text-center px-4">
-                  {i !== 0 && (
-                    <div className="absolute left-0 top-1/2 -translate-y-1/2 hidden h-12 w-px bg-border md:block" />
-                  )}
-                  <div className="text-4xl font-extrabold text-accent lg:text-5xl">
-                    <CountUp end={stat.number} suffix={stat.suffix} />
-                  </div>
-                  <p className="mt-2 text-xs font-bold tracking-widest text-muted uppercase">
-                    {stat.label}
-                  </p>
-                </div>
+                <motion.span
+                  key={i}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.6 + i * 0.1 }}
+                  className="inline-flex items-center rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-foreground"
+                >
+                  {stat}
+                </motion.span>
               ))}
             </div>
           </motion.div>

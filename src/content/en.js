@@ -2,18 +2,13 @@ export default {
   hero: {
     greeting: "Hi, I'm",
     name: "Tushar Garg",
-    label: "/ AI & DATA ENGINEER",
-    headline: "Building AI Systems for Manufacturing & Environmental Intelligence",
-    subline: "AI & Data Analysis Intern | Full-Stack Developer | Bioinformatics Background",
-    availability: "Currently open to AI, Data, and Industrial Technology opportunities.",
-    stats: [
-      { number: "4", label: "Projects", suffix: "+" },
-      { number: "2", label: "Internships" },
-      { number: "JLPT N3", label: "Japanese" },
-      { number: "5", label: "Languages" }
-    ],
-    roles: ["AI Engineer", "Data Analyst", "Full-Stack Developer", "Manufacturing AI Specialist"],
-    description: "Building AI-driven systems for manufacturing inspection, environmental analytics, and real-world data applications.",
+    label: "/ SOFTWARE ENGINEER",
+    headline: "Software Engineer",
+    subline: "Building production-grade software systems, scalable backend services, and AI-powered applications deployed across manufacturing, environmental analytics, finance, and bioinformatics.",
+    availability: "Currently open to Software Engineering, Backend, Full Stack, and Japan-based opportunities.",
+    stats: ["4 Production Projects", "3 Live Deployments", "NAT-Test N3", "AWS & Docker"],
+    roles: ["Backend Developer", "Full Stack Developer", "Cloud Engineer", "AI Applications Engineer"],
+    description: "Built solutions across finance, manufacturing, environmental analytics, and bioinformatics.",
     buttons: {
       viewProjects: "View Projects",
       downloadResume: "Download Resume",
@@ -23,14 +18,14 @@ export default {
       {
         label: "/ ABOUT ME",
         title: "About Me",
-        text: "Biotechnology student building real-world AI systems for manufacturing inspection and environmental analytics.",
+        text: "Software Engineer focused on building reliable, production-grade systems with a background in bioinformatics.",
         linkText: "Learn More →",
         linkHref: "#about"
       },
       {
         label: "/ MY WORK",
         title: "Key Projects",
-        text: "FinKizuna ERP, VERITAS, ZenKensa, HIV Drug Resistance — production-grade AI systems with measurable impact.",
+        text: "FinKizuna ERP, VERITAS, ZenKensa, HIV Drug Resistance — production-grade software systems with measurable impact.",
         linkText: "Browse Projects →",
         linkHref: "#projects"
       }
@@ -40,6 +35,7 @@ export default {
       { platform: "GitHub", href: "https://github.com/TusharGarg07" },
       { platform: "Email", href: "mailto:tushargarg2425@gmail.com" }
     ],
+    technologies: ["Python", "FastAPI", "React", "TypeScript", "PostgreSQL", "AWS", "Docker"],
     cards: {
       focus: {
         title: "Focus",
@@ -52,19 +48,18 @@ export default {
     },
     systemStatus: {
       title: "System Status",
-      deployed: "AI Systems Deployed",
+      deployed: "Software Systems Deployed",
       activeProjects: "Active Projects: 4",
-      focus: "Focus: Industrial & Environmental AI"
+      focus: "Focus: Production-Grade Engineering"
     }
   },
   about: {
     heading: "About Me",
-    subtitle: "Professional introduction and background in AI and Data Analysis.",
+    subtitle: "Software Engineer focused on backend systems, cloud-native applications, and AI-powered products.",
     paragraphs: [
-      "Engineer focused on end-to-end system development — from data pipelines and ML to backend, deployment, and optimization.",
-      "Built across finance (AI-powered ERP with fraud detection), manufacturing (computer vision inspection), environmental monitoring, and bioinformatics.",
-      "Comfortable with complex problems — debugging, experimenting, and iterating until things actually work in production.",
-      "Goal: build systems that are reliable, useful, and deliver real impact — not just functional demos."
+      "Software Engineer focused on backend systems, cloud-native applications, and AI-powered products.",
+      "Built solutions across finance, manufacturing, environmental analytics, and bioinformatics.",
+      "Experienced across the full development lifecycle — from system design and backend architecture to deployment and optimization."
     ],
     education: {
       title: "Education",
@@ -85,39 +80,40 @@ export default {
   },
   projects: [
     {
-      id: "zenkensa",
-      title: "ZenKensa – AI-assisted Manufacturing Inspection System",
-      description: "Developed an AI-assisted metal surface inspection system using computer vision and lightweight machine learning models. Designed to support inspection workflows in manufacturing environments.",
-      impact: "Focused on improving inspection efficiency and assisting decision-making processes.",
-      technologies: ["Python", "Computer Vision", "TensorFlow Lite", "FastAPI"],
-      githubUrl: "https://github.com/TusharGarg07/ZenKensa",
-      liveUrl: "https://zenkensa-ai.onrender.com"
-    },
-    {
       id: "finkizuna",
-      title: "FinKizuna ERP – AI-Powered ERP System",
-      description: "Production-grade multi-tenant SaaS ERP with fraud detection (~94% accuracy) using Isolation Forest + SHAP. Automated Ringi workflows and real-time decision support. Deployed with CI/CD, Nginx, and Docker.",
-      impact: "94% fraud detection accuracy",
-      technologies: ["FastAPI", "PostgreSQL", "AWS", "Docker", "CI/CD", "Isolation Forest"],
+      title: "FinKizuna ERP",
+      description: "Built and deployed a multi-tenant ERP SaaS platform featuring workflow automation, fraud detection, role-based access control, and cloud deployment.",
+      impact: "94% fraud detection accuracy using explainable AI.",
+      technologies: ["FastAPI", "PostgreSQL", "AWS", "Docker", "CI/CD", "React", "TypeScript"],
       githubUrl: "https://github.com/TusharGarg07",
       liveUrl: "https://fin-kizuna-erp-i5o9.vercel.app/"
     },
     {
       id: "veritas",
-      title: "VERITAS – AI Indoor Environmental Risk Intelligence",
-      description: "AI-driven indoor air quality monitoring system analyzing multi-parameter sensor data. Designed data pipelines with Pandas/NumPy, implemented risk scoring, visualization dashboards, and report generation.",
-      impact: "Real-time multi-parameter risk scoring",
-      technologies: ["Python", "Machine Learning", "Pandas", "NumPy", "FastAPI"],
+      title: "VERITAS Environmental Intelligence Platform",
+      description: "Built and deployed VERITAS, an environmental risk intelligence platform analyzing 11,000+ environmental records for real-time indoor air quality monitoring, risk assessment, and automated reporting.",
+      impact: "Analyzed 11,000+ environmental records and generated automated risk reports.",
+      technologies: ["Python", "FastAPI", "XGBoost", "SHAP", "Pandas", "Docker"],
       githubUrl: "https://github.com/TusharGarg07/VERITAS",
       liveUrl: "https://veritas-ai-system.onrender.com/"
     },
     {
+      id: "zenkensa",
+      title: "ZenKensa Manufacturing Inspection System",
+      description: "Built and deployed a computer vision solution for automated manufacturing quality inspection.",
+      impact: "Reduced manual inspection dependency through AI-assisted defect detection.",
+      technologies: ["TensorFlow Lite", "Python", "Computer Vision", "FastAPI"],
+      githubUrl: "https://github.com/TusharGarg07/ZenKensa",
+      liveUrl: "https://zenkensa-ai.onrender.com"
+    },
+    {
       id: "hiv-drug-resistance",
-      title: "Explainable HIV Drug Resistance Prediction System",
-      description: "ML system for predicting HIV drug resistance using genomic data. Integrated SHAP-based explainability for transparent healthcare decision-making. Built scalable pipelines with iterative validation.",
-      impact: "SHAP explainability for healthcare AI",
-      technologies: ["Python", "Machine Learning", "SHAP", "Bioinformatics", "FastAPI"],
-      githubUrl: "https://github.com/TusharGarg07/HIV-Drug-Resistance"
+      title: "Explainable HIV Drug Resistance Prediction",
+      description: "Built and deployed an explainable machine learning platform for HIV drug resistance prediction with transparent model interpretation.",
+      impact: "Improved interpretability of genomic prediction models using SHAP.",
+      technologies: ["Python", "Machine Learning", "Bioinformatics", "SHAP"],
+      githubUrl: "https://github.com/TusharGarg07/HIV-Drug-Resistance",
+      liveUrl: "https://explainable-hiv-drug-resistance-system.onrender.com"
     }
   ],
   projectButtons: {
@@ -126,93 +122,122 @@ export default {
   },
   experience: {
     heading: "Experience",
-    subtitle: "Professional internships in AI systems, manufacturing inspection, and environmental analytics.",
+    subtitle: "Professional experience building software systems, backend services, and data-driven applications across manufacturing, environmental analytics, and industrial domains.",
     items: [
       {
         id: "zenkensa",
-        role: "IT & Data Analysis Intern (AI / Manufacturing Systems)",
+        role: "Software & Manufacturing Systems Intern",
         company: "ZenKensa – Manufacturing Inspection System",
-        duration: "Dec 2025 – Present",
+        duration: "Dec 2025 – May 2026",
         points: [
-          "Contributed to the development of an AI-assisted metal surface inspection system.",
-          "Implemented computer vision pipelines and lightweight ML models.",
-          "Supported workflow automation and decision-support system design."
+          "Developed and supported software components for AI-assisted manufacturing inspection systems.",
+          "Implemented computer vision pipelines and optimized inference workflows for manufacturing inspection tasks.",
+          "Contributed to workflow automation and decision-support system design."
         ]
       },
       {
         id: "anant-raj",
-        role: "IT & Data Analysis Intern",
+        role: "Software Engineering Intern",
         company: "Anant Raj Cloud Pvt. Ltd.",
         duration: "May 2024 – June 2025",
         points: [
-          "Worked on VERITAS, an AI-based indoor air quality monitoring and risk intelligence system.",
+          "Built VERITAS, an environmental risk intelligence platform analyzing 11,000+ environmental records for real-time indoor air quality monitoring and risk assessment.",
           "Designed data processing pipelines using Pandas and NumPy for multi-parameter sensor data.",
-          "Analysed sensor data and implemented risk scoring algorithms, visualization, and reporting workflows.",
-          "Contributed to backend services and dashboards for environmental health decision support."
+          "Implemented risk scoring algorithms, visualization, and automated reporting workflows.",
+          "Developed backend services and dashboards for environmental health decision support."
         ]
       }
     ]
   },
+  whatIBuild: {
+    heading: "What I Build",
+    subtitle: "Production-grade software systems deployed across backend engineering, manufacturing automation, environmental analytics, finance, and bioinformatics.",
+    items: [
+      { id: "backend-systems", title: "Backend Systems", tech: ["FastAPI Services", "REST APIs", "Authentication", "Database Design", "Backend Architecture"] },
+      { id: "full-stack-applications", title: "Full Stack Applications", tech: ["React", "TypeScript", "PostgreSQL", "Cloud Deployment", "End-to-End Development"] },
+      { id: "ai-powered-products", title: "AI-Powered Products", tech: ["Explainable AI", "Computer Vision", "Predictive Analytics", "Decision Support Systems"] },
+      { id: "cloud-deployment", title: "Cloud & Deployment", tech: ["Docker", "AWS", "CI/CD", "Production Hosting"] }
+    ]
+  },
   skills: [
     {
-      id: "ai-ml",
-      category: "AI & Machine Learning",
-      items: ["Python", "Machine Learning", "Computer Vision", "TensorFlow", "Predictive Modeling"]
+      id: "software-engineering",
+      category: "Software Engineering",
+      items: ["Python", "TypeScript", "Git", "GitHub", "System Design"]
     },
     {
-      id: "data-analysis",
-      category: "Data Analysis",
-      items: ["Statistical Analysis", "NumPy", "Pandas", "Matplotlib"]
+      id: "backend-development",
+      category: "Backend Development",
+      items: ["FastAPI", "REST APIs", "PostgreSQL", "MySQL", "API Design", "Authentication"]
     },
     {
-      id: "full-stack",
-      category: "Full Stack Development",
-      items: ["HTML", "CSS", "JavaScript", "React.js", "Node.js", "Express.js", "FastAPI", "REST APIs"]
+      id: "frontend-development",
+      category: "Frontend Development",
+      items: ["React", "TypeScript", "JavaScript", "HTML5", "CSS3"]
     },
     {
       id: "cloud-devops",
       category: "Cloud & DevOps",
-      items: ["AWS (EC2, RDS, S3)", "Docker", "GitHub Actions", "CI/CD", "Nginx"]
+      items: ["AWS", "Docker", "CI/CD", "GitHub Actions", "Nginx", "Containerization"]
+    },
+    {
+      id: "data-engineering",
+      category: "Data Engineering & Analytics",
+      items: ["Pandas", "NumPy", "Data Pipelines", "Data Analysis", "Statistical Analysis"]
+    },
+    {
+      id: "ai-ml",
+      category: "AI & Machine Learning",
+      items: ["XGBoost", "SHAP", "Computer Vision", "TensorFlow", "Scikit-Learn"]
     },
     {
       id: "bioinformatics",
       category: "Bioinformatics",
-      items: ["BLAST", "Biopython", "Computational Genomics"]
-    },
-    {
-      id: "tools-platforms",
-      category: "Tools & Platforms",
-      items: ["Git", "GitHub", "VS Code", "Jupyter Notebook", "MySQL", "SQLite"]
+      items: ["Biopython", "BLAST", "Computational Genomics", "Genomic Data Analysis"]
     }
   ],
   certifications: [
     {
-      id: "jlpt-n5",
-      title: "JLPT N5 (2025)"
-    },
-    {
       id: "nat-test-n3",
-      title: "NAT-TEST N3 (2026)"
+      title: "NAT-Test N3",
+      issuer: "Japanese Language Certification",
+      year: "2026"
     },
     {
-      id: "microsoft-tech",
-      title: "Microsoft Technical Certification (2024)"
-    },
-    {
-      id: "data-analysis-excel-udemy",
-      title: "Data Analysis and Excel – Udemy (2024)"
-    },
-    {
-      id: "ai-ml-core",
-      title: "AI and Machine Learning Core Certification"
+      id: "jlpt-n5",
+      title: "JLPT N5",
+      issuer: "Japanese Language Proficiency Test",
+      year: "2025"
     },
     {
       id: "python-data-science",
-      title: "Python for Data Science (NPTEL)"
+      title: "Python for Data Science",
+      issuer: "NPTEL",
+      year: "2025"
+    },
+    {
+      id: "microsoft-tech",
+      title: "Microsoft Technical Certification",
+      issuer: "Microsoft",
+      year: "2024"
+    },
+    {
+      id: "data-analysis-excel-udemy",
+      title: "Data Analysis & Excel",
+      issuer: "Udemy",
+      year: "2024"
+    },
+    {
+      id: "ai-ml-core",
+      title: "AI and Machine Learning Core",
+      issuer: "Certification Program",
+      year: "2024"
     },
     {
       id: "full-stack-web",
-      title: "Full Stack Web Development Certification"
+      title: "Full Stack Web Development",
+      issuer: "Certification Program",
+      year: "2024"
     }
   ],
   languages: [
@@ -226,16 +251,17 @@ export default {
     },
     {
       name: "Japanese",
-      level: "JLPT N3 (Working Proficiency)"
+      level: "Intermediate Professional Working Proficiency (NAT-Test N3 | JLPT N2 Candidate)"
     },
     {
       name: "Russian",
       level: "Beginner (A1)"
     }
   ],
+  skillsSubtitle: "Technical expertise across software engineering, backend development, cloud technologies, data analytics, and AI-powered applications.",
   contact: {
     heading: "Contact",
     message: "Feel free to reach out for collaboration opportunities.",
-    closing: "AI, Data, and Industrial Technology collaboration opportunities are welcome."
+    closing: "Open to Software Engineering, Backend Development, Full Stack Development, Cloud Engineering, AI Applications, Freelance Projects, and International Opportunities."
   }
 }
