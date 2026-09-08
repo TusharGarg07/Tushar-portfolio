@@ -5,7 +5,7 @@ export default {
     headline: "ソフトウェアエンジニア",
     subline: "製造、環境分析、金融、バイオインフォマティクスの分野でデプロイされた、本番環境向けソフトウェアシステム、スケーラブルなバックエンドサービス、AIアプリケーションの開発。",
     availability: "現在、ソフトウェアエンジニア、バックエンド、フルスタック、日本国内の機会を探しています。",
-    stats: ["4件の本番プロジェクト", "3つのライブデプロイ", "NAT-Test N3", "AWS & Docker"],
+    stats: ["4件の本番プロジェクト", "3つのライブデプロイ", "JLPT N3", "AWS & Docker"],
     roles: ["バックエンド開発者", "フルスタック開発者", "クラウドエンジニア", "AIアプリケーションエンジニア"],
     description: "金融、製造、環境分析、バイオインフォマティクスの分野でソリューションを構築しました。",
     buttons: {
@@ -17,11 +17,11 @@ export default {
     cards: {
       focus: {
         title: "フォーカス",
-        text: "実用的な機械学習、分析ワークフロー、そして実利的なエンジニアリング。"
+        text: "実用的なソフトウェアエンジニアリング、バックエンドシステム、AIアプリケーション、分析ワークフロー。"
       },
       domains: {
         title: "専門分野",
-        text: "製造業AI、環境データ、バイオインフォマティクス、フルスタック。"
+        text: "金融、製造、環境分析、バイオインフォマティクス、フルスタックシステム。"
       }
     },
     systemStatus: {
@@ -107,10 +107,10 @@ export default {
     {
       id: "finkizuna",
       title: "FinKizuna ERP",
-      description: "構築・デプロイした、ワークフロー自動化、不正検知、ロールベースのアクセス制御、クラウドデプロイを備えたマルチテナントSaaS ERPプラットフォーム。",
+      description: "構築・デプロイした、ワークフロー自動化、不正検知、ロールベースのアクセス制御、クラウドデプロイを備えたマルチテナントSaaS ERPプラットフォーム。国際的なユーザーや日本企業向けに、英語・日本語のバイリンガルインターフェースも実装しました。",
       impact: "説明可能AIを用いて94%の不正検知精度を実現。",
       technologies: ["FastAPI", "PostgreSQL", "AWS", "Docker", "CI/CD", "React", "TypeScript"],
-      githubUrl: "https://github.com/TusharGarg07",
+      githubUrl: "https://github.com/TusharGarg07/FinKizuna-ERP",
       liveUrl: "https://fin-kizuna-erp-i5o9.vercel.app/"
     },
     {
@@ -119,7 +119,7 @@ export default {
       description: "11,000件以上の環境データを分析し、リアルタイム室内空気質モニタリング、リスク評価、自動レポート生成を行う環境リスク知能プラットフォーム「VERITAS」を構築・デプロイ。",
       impact: "11,000件以上の環境データを分析し、自動リスクレポートを生成。",
       technologies: ["Python", "FastAPI", "XGBoost", "SHAP", "Pandas", "Docker"],
-      githubUrl: "https://github.com/TusharGarg07/VERITAS",
+      githubUrl: "https://github.com/TusharGarg07/VERITAS-AI-System",
       liveUrl: "https://veritas-ai-system.onrender.com/"
     },
     {
@@ -128,7 +128,7 @@ export default {
       description: "製造品質自動検査のためのコンピュータビジョンソリューションを構築・デプロイ。",
       impact: "AI支援の欠陥検出により手作業による検査への依存を軽減。",
       technologies: ["TensorFlow Lite", "Python", "Computer Vision", "FastAPI"],
-      githubUrl: "https://github.com/TusharGarg07/ZenKensa",
+      githubUrl: "https://github.com/TusharGarg07/ZenKensa-AI--AI-Surface-Inspection-System-",
       liveUrl: "https://zenkensa-ai.onrender.com"
     },
     {
@@ -137,7 +137,7 @@ export default {
       description: "透明なモデル解釈を備えたHIV薬剤耐性予測の説明可能機械学習プラットフォームを構築・デプロイ。",
       impact: "SHAPを用いてゲノム予測モデルの解釈性を向上。",
       technologies: ["Python", "Machine Learning", "Bioinformatics", "SHAP"],
-      githubUrl: "https://github.com/TusharGarg07/HIV-Drug-Resistance",
+      githubUrl: "https://github.com/TusharGarg07/Explainable-HIV-Drug-Resistance-System",
       liveUrl: "https://explainable-hiv-drug-resistance-system.onrender.com"
     }
   ],
@@ -176,9 +176,9 @@ export default {
   },
   certifications: [
     {
-      id: "nat-test-n3",
-      title: "NAT-Test N3",
-      issuer: "日本語能力認定",
+      id: "jlpt-n3",
+      title: "JLPT N3",
+      issuer: "日本語能力試験",
       year: "2026"
     },
     {
@@ -229,7 +229,7 @@ export default {
     },
     {
       name: "日本語",
-      level: "NAT N3 取得 | JLPT N2 準備中"
+      level: "中級・実務レベル（JLPT N3取得 | JLPT N2候補）"
     },
     {
       name: "ロシア語",
