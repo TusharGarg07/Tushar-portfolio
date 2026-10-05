@@ -53,6 +53,14 @@ export default {
   },
   projects: [
     {
+      id: "dataflowx",
+      title: "DataFlowX Research Data Processing Platform",
+      description: "Built a modular research data processing platform with secure JWT authentication, ownership-based authorization, dataset management, persistent asynchronous job processing, dashboard APIs, and a React/TypeScript frontend.",
+      impact: "Implemented production-minded backend architecture with persistent job lifecycle tracking, validation, testing, and CI/CD hardening.",
+      technologies: ["Java 21", "Spring Boot", "Spring Security", "PostgreSQL", "React", "TypeScript", "JUnit", "Mockito", "CI/CD"],
+      githubUrl: "https://github.com/TusharGarg07/DataFlowX.git"
+    },
+    {
       id: "finkizuna",
       title: "FinKizuna ERP",
       description: "Built and deployed a multi-tenant ERP SaaS platform featuring workflow automation, fraud detection, role-based access control, and cloud deployment. Implemented a bilingual English and Japanese interface for international and Japanese business users.",
@@ -130,8 +138,8 @@ export default {
     ]
   },
   skills: [
-    { id: "software-engineering", category: "Software Engineering", items: ["Python", "TypeScript", "Git", "GitHub", "System Design"] },
-    { id: "backend-development", category: "Backend Development", items: ["FastAPI", "REST APIs", "PostgreSQL", "MySQL", "API Design", "Authentication"] },
+    { id: "software-engineering", category: "Software Engineering", items: ["Python", "Java 21", "TypeScript", "Git", "GitHub", "System Design", "JUnit", "Mockito"] },
+    { id: "backend-development", category: "Backend Development", items: ["FastAPI", "Spring Boot", "Spring Security", "REST APIs", "PostgreSQL", "MySQL", "API Design", "JWT Authentication"] },
     { id: "frontend-development", category: "Frontend Development", items: ["React", "TypeScript", "JavaScript", "HTML5", "CSS3"] },
     { id: "cloud-devops", category: "Cloud & DevOps", items: ["AWS", "Docker", "CI/CD", "GitHub Actions", "Nginx", "Containerization"] },
     { id: "data-engineering", category: "Data Engineering & Analytics", items: ["Pandas", "NumPy", "Data Pipelines", "Data Analysis", "Statistical Analysis"] },
