@@ -15,8 +15,8 @@ export default {
       contactMe: "Contact Me"
     },
     quickCards: [
-      { label: "/ ABOUT ME", title: "About Me", text: "Software Engineer focused on building reliable, production-grade systems with a background in bioinformatics.", linkText: "Learn More →", linkHref: "#about" },
-      { label: "/ MY WORK", title: "Key Projects", text: "FinKizuna ERP, VERITAS, ZenKensa, HIV Drug Resistance — production-grade software systems with measurable impact.", linkText: "Browse Projects →", linkHref: "#projects" }
+      { label: "/ ABOUT ME", title: "About Me", text: "Software Engineer building production-grade backend, full-stack, cloud, and AI-powered systems across finance, research data processing, manufacturing, environmental analytics, and bioinformatics.", linkText: "Learn More →", linkHref: "#about" },
+      { label: "/ MY WORK", title: "Key Projects", text: "FinKizuna ERP, DataFlowX, VERITAS, ZenKensa, and HIV Drug Resistance — software systems built around real engineering problems, security, automation, and measurable outcomes.", linkText: "Browse Projects →", linkHref: "#projects" }
     ],
     socialLinks: [
       { platform: "LinkedIn", href: "https://www.linkedin.com/in/tushargarg25" },
