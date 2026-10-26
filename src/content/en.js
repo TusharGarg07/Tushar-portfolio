@@ -57,8 +57,8 @@ export default {
       title: "DataFlowX Research Data Processing Platform",
       description: "Built a modular research data processing platform with secure JWT authentication, ownership-based authorization, dataset management, persistent asynchronous job processing, dashboard APIs, and a React/TypeScript frontend.",
       impact: "Implemented production-minded backend architecture with persistent job lifecycle tracking, validation, testing, and CI/CD hardening.",
-      technologies: ["Java 21", "Spring Boot", "Spring Security", "PostgreSQL", "React", "TypeScript", "JUnit", "Mockito", "CI/CD"],
-      githubUrl: "https://github.com/TusharGarg07/DataFlowX.git",
+      technologies: ["React", "TypeScript", "Java 21", "Spring Boot", "PostgreSQL", "JWT", "Docker"],
+      githubUrl: "https://github.com/TusharGarg07/DataFlowX",
       liveUrl: "https://data-flow-x-gamma.vercel.app"
     },
     {
