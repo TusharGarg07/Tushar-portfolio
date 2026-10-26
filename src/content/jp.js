@@ -109,8 +109,8 @@ export default {
       title: "DataFlowX 研究データ処理プラットフォーム",
       description: "JWT認証、所有者ベースの認可、データセット管理、永続的な非同期ジョブ処理、ダッシュボードAPI、React/TypeScriptフロントエンドを備えたモジュール型の研究データ処理プラットフォームを構築しました。",
       impact: "ジョブのライフサイクル管理、バリデーション、テスト、CI/CDの強化を含む、本番運用を意識したバックエンドアーキテクチャを実装。",
-      technologies: ["Java 21", "Spring Boot", "Spring Security", "PostgreSQL", "React", "TypeScript", "JUnit", "Mockito", "CI/CD"],
-      githubUrl: "https://github.com/TusharGarg07/DataFlowX.git",
+      technologies: ["React", "TypeScript", "Java 21", "Spring Boot", "PostgreSQL", "JWT", "Docker"],
+      githubUrl: "https://github.com/TusharGarg07/DataFlowX",
       liveUrl: "https://data-flow-x-gamma.vercel.app"
     },
     {
